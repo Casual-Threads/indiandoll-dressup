@@ -41,7 +41,6 @@ public class Spa : MonoBehaviour
     public Image LipsImage;
     public Image eyesImage;
     public Animator eyesAnimator;
-    int index = 0;
     public MRS_Manager nextBtn;
 
     public ParticleSystem taskParticle;
@@ -49,6 +48,7 @@ public class Spa : MonoBehaviour
     public Image fillBar;
     [Header("SPA AudioSource")]
     public AudioSource ohNoSFX;
+    public AudioSource facewashSFX;
     public AudioSource removerSFX;
     public AudioSource clappingSFX;
 
@@ -71,8 +71,6 @@ public class Spa : MonoBehaviour
     #region NextButtonMovement
     public void NextTask()
     {
-        if (index == 0)
-        {
             if (action == SpaActionTrigger.WormPoper)
             {
                 wormPoper.SetActive(false);
@@ -92,18 +90,11 @@ public class Spa : MonoBehaviour
             {
                 remover.SetActive(false);
                 nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
-                
             }
             else
             {
                 TaskDone();
             }
-        }
-        else
-        {
-            play();
-        }
-
     }
     #endregion
 
@@ -178,12 +169,13 @@ public class Spa : MonoBehaviour
         }
         else if (action == SpaActionTrigger.Remover)
         {
-            index = 1;
+            //index = 1;
             if (clappingSFX) clappingSFX.Play();
             nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
             action = SpaActionTrigger.Remover;
             remover.SetActive(false);
             foam.SetActive(false);
+            play();
         }
     }
     #endregion

@@ -165,6 +165,7 @@ public class drag : MonoBehaviour
         else if (col.gameObject.name == "Facewash" && gameObject.name == "FacewashBottel")
         {
             Invoke("ObjectOff", 0.1f);
+            SpaController.facewashSFX.Play();
             if (col.gameObject.transform.childCount > 0)
                 col.gameObject.transform.GetChild(1).GetComponent<Animator>().enabled = true;
             col.gameObject.transform.GetChild(1).GetComponent<Animator>().Play(0);
@@ -270,6 +271,7 @@ public class drag : MonoBehaviour
     }
     public void ObjectActivation()
     {
+        if(SpaController.facewashSFX) SpaController.facewashSFX.Stop();
         SpaController.LipsImage.sprite = SpaController.lipsSprites[1];
         SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
         gameObject.SetActive(true);
@@ -281,6 +283,7 @@ public class drag : MonoBehaviour
     public void doneFunctionInvoke()
     {
         SpaController.NextTask();
+        if (SpaController.facewashSFX) SpaController.facewashSFX.Stop();
         SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
         SpaController.taskParticle.Play();
         if (SpaController.taskParticle) SpaController.taskParticle.transform.GetComponent<AudioSource>().Play();

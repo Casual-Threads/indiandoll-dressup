@@ -237,8 +237,6 @@ public class Ubtan : MonoBehaviour
     {
         if (selectedItem == UbtanSelectedItem.gajra)
         {
-            Debug.Log("abc");
-            //TaskDone();
             nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
             selectedItem = UbtanSelectedItem.jewellery;
             uIElements.gajraObject.SetActive(false);
