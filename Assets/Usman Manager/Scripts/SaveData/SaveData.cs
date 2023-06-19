@@ -17,12 +17,31 @@ public class Modesprops
     public bool isLocked;
 }
 
-//blush, bouqet, braclete, dress, earing, eyebrow, eyelashes, eyeshade, facemask, hair, handbag, lanz, lips, shoes;
+//bag, bindi, blush, bangle, closedEyeshade, dress, earing, eyeshade, hair, mathapati, mehandi, necklace, nosering, shoes;
 [System.Serializable]
 public class UbtanModeElements
 {
     public List<bool> jewellery = new List<bool>();
     public List<bool> gajary = new List<bool>();
+
+}
+
+[System.Serializable]
+public class GamePlayModeElements
+{
+    public List<bool> bag = new List<bool>();
+    public List<bool> bindi = new List<bool>();
+    public List<bool> blush = new List<bool>();
+    public List<bool> bangle = new List<bool>();
+    public List<bool> closedEyeshade = new List<bool>();
+    public List<bool> dress = new List<bool>();
+    public List<bool> earing = new List<bool>();
+    public List<bool> eyeshade = new List<bool>();
+    public List<bool> hair = new List<bool>();
+    public List<bool> mathapati = new List<bool>();
+    public List<bool> mehandi = new List<bool>();
+    public List<bool> necklace = new List<bool>();
+    public List<bool> nosering = new List<bool>();
 
 }
 
@@ -56,6 +75,7 @@ public class SaveData
     public List<PlayerProps> Players = new List<PlayerProps>();
     public List<Modesprops> ModeProps = new List<Modesprops>();
     public UbtanModeElements UbtanModeElements = new UbtanModeElements();
+    public GamePlayModeElements GamePlayModeElements = new GamePlayModeElements();
     public string hashOfSaveData;
 
     //Constructor to save actual GameData
@@ -63,7 +83,7 @@ public class SaveData
 
     //Constructor to check any tampering with the SaveData
     public SaveData(bool ads, int levelsUnlocked, int eventsUnlocked, int coins, bool soundOn, bool musicOn, bool vibrationOn, bool rightControls, List<PlayerProps> _players,
-                    List<Modesprops> _modeProps, UbtanModeElements _UbtanModeElements)
+                    List<Modesprops> _modeProps, UbtanModeElements _UbtanModeElements, GamePlayModeElements _GamePlayModeElements)
     {
         RemoveAds = ads;
         LevelsUnlocked = levelsUnlocked;
@@ -76,5 +96,6 @@ public class SaveData
         Players = _players;
         ModeProps = _modeProps;
         UbtanModeElements = _UbtanModeElements;
+        GamePlayModeElements = _GamePlayModeElements;
     }
 }

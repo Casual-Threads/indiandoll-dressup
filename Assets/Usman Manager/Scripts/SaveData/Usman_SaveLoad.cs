@@ -10,7 +10,7 @@ public class Usman_SaveLoad
     {
         SaveData CheckSave = new SaveData(SaveData.Instance.RemoveAds, SaveData.Instance.LevelsUnlocked, SaveData.Instance.EventsUnlocked, SaveData.Instance.Coins,
         SaveData.Instance.isSound, SaveData.Instance.isMusic, SaveData.Instance.isVibration, SaveData.Instance.isRightControls, SaveData.Instance.Players, SaveData.Instance.ModeProps,
-        SaveData.Instance.UbtanModeElements);
+        SaveData.Instance.UbtanModeElements, SaveData.Instance.GamePlayModeElements);
         string saveDataString = JsonUtility.ToJson(CheckSave, true);
         SaveData.Instance.hashOfSaveData = HashGenerator(saveDataString);
         string saveDataHashed = JsonUtility.ToJson(SaveData.Instance, true);

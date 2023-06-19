@@ -37,7 +37,7 @@ public class UIAnimationsManager : MonoBehaviour
     public AnimationType animationType;
     public bool reFresh;
     private string xAxis = "x", yAxis = "y", zAxis = "z", timeHash = "time", easeType = "easeType", rotationCycle = "rotation", ignoreTimeScale = "ignoretimescale";
-    //private string selectedType;
+    private string selectedType;
     private float timeCount;
 
     private void OnEnable()
