@@ -282,7 +282,7 @@ public class drag : MonoBehaviour
     }
     public void doneFunctionInvoke()
     {
-        SpaController.NextTask();
+        SpaController.TaskDone();
         if (SpaController.facewashSFX) SpaController.facewashSFX.Stop();
         SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
         SpaController.taskParticle.Play();

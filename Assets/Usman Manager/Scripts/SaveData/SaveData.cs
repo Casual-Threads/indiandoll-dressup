@@ -17,7 +17,6 @@ public class Modesprops
     public bool isLocked;
 }
 
-//bag, bindi, blush, bangle, closedEyeshade, dress, earing, eyeshade, hair, mathapati, mehandi, necklace, nosering, shoes;
 [System.Serializable]
 public class UbtanModeElements
 {
@@ -67,7 +66,8 @@ public class SaveData
     public int LevelsUnlocked = 1;
     public int levelIndex = 0;
     public int EventsUnlocked = 0;
-    public int SelectedAvatar = 0;
+    //public int SelectedAvatar = 0;
+    public int selectedCharacter;
     public string ProfileName;
     public bool ProfileCreated = false;
     public bool isSound = true, isMusic = true, isVibration = true, isRightControls = true;

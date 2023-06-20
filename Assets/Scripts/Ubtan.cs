@@ -10,13 +10,13 @@ using Sirenix.OdinInspector;
 [System.Serializable]
 public enum UbtanActionTrigger
 {
-    Mehndi, Water, Cleaning
+   none, Mehndi, Water, Cleaning
 }
 
 [System.Serializable]
 public enum UbtanSelectedItem
 {
-    jewellery, gajra
+    gajra, jewellery
 }
 
 [System.Serializable]
@@ -80,14 +80,18 @@ public class Ubtan : MonoBehaviour
     [Header("Ubtan AudioSource")]
     public AudioSource itemChangeSFX;
     public AudioSource removerSFX;
-    //public AudioSource clappingSFX;
+    public GameObject loadingPanel;
+    public Image fillBar;
+    public Image characterImage;
+    public Sprite[] characters;
 
     // Start is called before the first frame update
     #region Start Function
     void Start()
     {
-        SetInitialValues();
+        //characterImage.sprite = characters[SaveData.Instance.selectedCharacter];
         action = UbtanActionTrigger.Mehndi;
+        SetInitialValues();
         GetItemsInfo();
     }
     public void ShowInterstitial()
@@ -235,12 +239,26 @@ public class Ubtan : MonoBehaviour
     #region NextButtonMovement
     public void NextTask()
     {
-        if (selectedItem == UbtanSelectedItem.gajra)
+        if(action == UbtanActionTrigger.Water)
         {
             nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
+            waterJar.SetActive(true);
+        }
+        else if(action == UbtanActionTrigger.Cleaning)
+        {
+            cleaner.SetActive(true);
+            nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
+            action = UbtanActionTrigger.none;
+        }
+        else if (selectedItem == UbtanSelectedItem.gajra)
+        {
             selectedItem = UbtanSelectedItem.jewellery;
             uIElements.gajraObject.SetActive(false);
             uIElements.jewelleryObject.SetActive(true);
+        }
+        else if(selectedItem == UbtanSelectedItem.jewellery)
+        {
+            play();
         }
     }
     #endregion
@@ -250,22 +268,45 @@ public class Ubtan : MonoBehaviour
     {
         if (action == UbtanActionTrigger.Mehndi)
         {
+            nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             action = UbtanActionTrigger.Water;
-            waterJar.SetActive(true);
         }
         else if(action == UbtanActionTrigger.Water)
         {
+            nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             action = UbtanActionTrigger.Cleaning;
-            cleaner.SetActive(true);
         }
-        else if(action == UbtanActionTrigger.Cleaning)
+        else if(action == UbtanActionTrigger.none)
         {
+            nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             selectedItem = UbtanSelectedItem.gajra;
             uIElements.gajraObject.SetActive(true);
             nextBtn.gameObject.SetActive(true);
         }
     }
     #endregion
+
+    #region LoadScene
+    public void play()
+    {
+        ShowInterstitial();
+        loadingPanel.SetActive(true);
+        StartCoroutine(LoadingScene());
+    }
+    #endregion
+
+    IEnumerator LoadingScene()
+    {
+        yield return new WaitForSeconds(1f);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("GamePlay");
+        asyncLoad.allowSceneActivation = false;
+        while (fillBar.fillAmount < 1)
+        {
+            fillBar.fillAmount += Time.deltaTime / 3;
+            yield return null;
+        }
+        asyncLoad.allowSceneActivation = true;
+    }
 
     #region Coroutines
     IEnumerator ObjectActivation(GameObject Obj, float _Delay, bool activateNow)

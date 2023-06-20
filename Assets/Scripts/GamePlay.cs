@@ -146,12 +146,15 @@ public class GamePlay : MonoBehaviour
     [Header("Bool Variable")]
     private bool canShowInterstitial;
     [Header("Particles")]
+    public GameObject taskPartical;
     public GameObject finalPartical;
     [Header("AudioSources")]
     public AudioSource categorySFX;
-    public AudioSource purchaseSFX, winSFX, loseSFX, scoreSFX;
+    public AudioSource purchaseSFX, scoreSFX;
     public AudioSource[] voiceSounds;
     public Animator eyeAnim;
+    public Image characterImage;
+    public Sprite[] characters;
 
     bool Isdress, Isbangle, Isearing, Isnecklace, Ismathapati, Isnosering, Isbindi, Ismehandi, Isbag, Ishair, Isblush, IsclosedEyeshade, Iseyeshade;
 
@@ -166,6 +169,7 @@ public class GamePlay : MonoBehaviour
     void Start()
     {
         Usman_SaveLoad.LoadProgress();
+        //characterImage.sprite = characters[SaveData.Instance.selectedCharacter];
         selectedItem = GamePlaySelectedItem.dress;
         uIElements.dressScroller.SetActive(true);
         SetInitialValues();
@@ -592,6 +596,7 @@ public class GamePlay : MonoBehaviour
                             {
                                 uIElements.nextBtn.SetActive(true);
                             }
+                            if (taskPartical) taskPartical.SetActive(true);
                             voiceSounds[Random.Range(0, voiceSounds.Length)].Play();
                             itemImage.gameObject.SetActive(false);
                             itemImage.gameObject.SetActive(true);
@@ -956,12 +961,15 @@ public class GamePlay : MonoBehaviour
 
     IEnumerator LoadingScene(string str)
     {
-
+        AsyncOperation asyncLoad;
+        asyncLoad = SceneManager.LoadSceneAsync(str);
+        asyncLoad.allowSceneActivation = false;
         while (uIElements.fillbar.fillAmount < 1)
         {
             uIElements.fillbar.fillAmount += Time.deltaTime / 3;
             yield return null;
         }
+        asyncLoad.allowSceneActivation = true;
     }
 
     IEnumerator playEyeAnim()
@@ -1333,24 +1341,30 @@ public class GamePlay : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         for (int i = 0; i < Random.Range(10, 25); i++)
         {
+            if (scoreSFX) scoreSFX.Play();
             playerElements.txtPlayerScore.gameObject.SetActive(false);
             playerElements.txtPlayerScore.gameObject.SetActive(true);
             playerElements.txtPlayerScore.text = Random.Range(99, 200).ToString();
             yield return new WaitForSeconds(0.1f);
+            if (scoreSFX) scoreSFX.Stop();
         }
         for (int i = 0; i < Random.Range(10, 25); i++)
         {
+            if (scoreSFX) scoreSFX.Play();
             oppoElements.txtRightOppoScore.gameObject.SetActive(false);
             oppoElements.txtRightOppoScore.gameObject.SetActive(true);
             oppoElements.txtRightOppoScore.text = Random.Range(00, 100).ToString();
             yield return new WaitForSeconds(0.1f);
+            if (scoreSFX) scoreSFX.Stop();
         }
         for (int i = 0; i < Random.Range(10, 25); i++)
         {
+            if (scoreSFX) scoreSFX.Play();
             oppoElements.txtLeftOppoScore.gameObject.SetActive(false);
             oppoElements.txtLeftOppoScore.gameObject.SetActive(true);
             oppoElements.txtLeftOppoScore.text = Random.Range(00, 100).ToString();
             yield return new WaitForSeconds(0.1f);
+            if (scoreSFX) scoreSFX.Stop();
         }
         yield return new WaitForSeconds(2f);
         oppoLeftCharacterMover.Move(new Vector3(2000, -400, 800), 0.7f, true, false);
@@ -1368,34 +1382,6 @@ public class GamePlay : MonoBehaviour
         yield return new WaitForSeconds(1f);
         uIElements.lastBtns.SetActive(true);
 
-    }
-    #endregion
-
-    #region ShareScreenShot
-    public void ShareScreenShot()
-    {
-        uIElements.submitPanelbar.SetActive(false);
-        StartCoroutine(shareScreenShot());
-    }
-
-    IEnumerator shareScreenShot()
-    {
-        yield return new WaitForEndOfFrame();
-        Texture2D tx = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
-        tx.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-        tx.Apply();
-        string path = Path.Combine(Application.temporaryCachePath, "sharedImage.png");//image name
-        File.WriteAllBytes(path, tx.EncodeToPNG());
-
-        Destroy(tx); //to avoid memory leaks
-
-        new NativeShare()
-            .AddFile(path)
-            //.SetSubject("This is my score")
-            //.SetText("share your score with your friends")
-            .Share();
-        //uIElements.SubmitPanel.SetActive(false); //hide the panel
-        uIElements.submitPanelbar.SetActive(true);
     }
     #endregion
 

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public enum SpaActionTrigger
 {
-    PimplePoper, WormPoper, Serum, FaceWash, Foam, Mask, Remover
+   none, PimplePoper, WormPoper, Serum, FaceWash, Foam, Mask, Remover
 }
 
 public class Spa : MonoBehaviour
@@ -38,6 +38,8 @@ public class Spa : MonoBehaviour
     public Image[] foamArray;
     public Sprite [] lipsSprites;
     public Sprite[] eyeSprites;
+    public Image characterImage;
+    public Sprite[] characters;
     public Image LipsImage;
     public Image eyesImage;
     public Animator eyesAnimator;
@@ -56,44 +58,77 @@ public class Spa : MonoBehaviour
     #region Start Function
     void Start()
     {
+        //characterImage.sprite = characters[SaveData.Instance.selectedCharacter];
         action = SpaActionTrigger.PimplePoper;
         //StartCoroutine(AdDelay(60));
     }
     public void ShowInterstitial()
     {
-        //if (MyAdsManager.instance)
-        //{
-        //    MyAdsManager.instance.ShowInterstitialAds();
-        //}
+        if (MyAdsManager.instance)
+        {
+            MyAdsManager.instance.ShowInterstitialAds();
+        }
     }
     #endregion
 
     #region NextButtonMovement
     public void NextTask()
     {
-            if (action == SpaActionTrigger.WormPoper)
+            if (action == SpaActionTrigger.PimplePoper)
             {
+                nextBtn.Move(new Vector3(800, -244, 0), 0.3f, true, false);
+                action = SpaActionTrigger.WormPoper;
+                pimplePoper.SetActive(false);
+                pimples.SetActive(false);
+                worms.SetActive(true);
+                wormPoper.SetActive(true);
+            }
+            else if (action == SpaActionTrigger.WormPoper)
+            {
+                //ShowInterstitial();
+                nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
+                action = SpaActionTrigger.Serum;
+                worms.SetActive(false);
                 wormPoper.SetActive(false);
-                nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
+                serums.SetActive(true);
+                serumBottel.SetActive(true);
+            }
+            else if (action == SpaActionTrigger.Serum)
+            {
+                nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
+                action = SpaActionTrigger.FaceWash;
+                serums.SetActive(false);
+                serumBottel.SetActive(false);
+                facewash.SetActive(true);
+                facewashBottel.SetActive(true);
+            }
+            else if (action == SpaActionTrigger.FaceWash)
+            {
+                ShowInterstitial();
+                nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
+                action = SpaActionTrigger.Foam;
+                facewashBottel.SetActive(false);
+                foam.SetActive(true);
+                handAnim.SetActive(true);
+            }
+            else if (action == SpaActionTrigger.Foam)
+            {
+                nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
+                action = SpaActionTrigger.Remover;
+                facewash.SetActive(false);
+                handAnim.SetActive(false);
+                remover.SetActive(true);
             }
             else if (action == SpaActionTrigger.FaceWash)
             {
                 facewashBottel.SetActive(false);
                 nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
             }
-            else if (action == SpaActionTrigger.FaceWash)
-            {
-                facewashBottel.SetActive(false);
-                nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
-            }
-            else if (action == SpaActionTrigger.Remover)
+            else if (action == SpaActionTrigger.none)
             {
                 remover.SetActive(false);
                 nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
-            }
-            else
-            {
-                TaskDone();
+                play();
             }
     }
     #endregion
@@ -101,8 +136,8 @@ public class Spa : MonoBehaviour
     #region LoadScene
     public void play()
     {
-        //ShowInterstitial();
-        //loadingPanel.SetActive(true);
+        ShowInterstitial();
+        loadingPanel.SetActive(true);
         StartCoroutine(LoadingScene());
     }
     #endregion
@@ -111,13 +146,13 @@ public class Spa : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Ubtan");
-        //asyncLoad.allowSceneActivation = false;
-        //while (fillBar.fillAmount < 1)
-        //{
-        //    fillBar.fillAmount += Time.deltaTime / 3;
-        //    yield return null;
-        //}
-        //asyncLoad.allowSceneActivation = true;
+        asyncLoad.allowSceneActivation = false;
+        while (fillBar.fillAmount < 1)
+        {
+            fillBar.fillAmount += Time.deltaTime / 3;
+            yield return null;
+        }
+        asyncLoad.allowSceneActivation = true;
     }
 
     #region TaskDone
@@ -125,57 +160,35 @@ public class Spa : MonoBehaviour
     {
         if (action == SpaActionTrigger.PimplePoper)
         {
-            nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
-            action = SpaActionTrigger.WormPoper;
-            pimplePoper.SetActive(false);
-            pimples.SetActive(false);
-            worms.SetActive(true);
-            wormPoper.SetActive(true);
+            nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
         }
         else if (action == SpaActionTrigger.WormPoper)
         {
-            nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
-            action = SpaActionTrigger.Serum;
-            worms.SetActive(false);
-            wormPoper.SetActive(false);
-            serums.SetActive(true);
-            serumBottel.SetActive(true);
+            nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
         }
         else if (action == SpaActionTrigger.Serum)
         {
-            nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
-            action = SpaActionTrigger.FaceWash;
+            nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
             serums.SetActive(false);
             serumBottel.SetActive(false);
-            facewash.SetActive(true);
-            facewashBottel.SetActive(true);
-
         }
         else if (action == SpaActionTrigger.FaceWash)
         {
-            nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
-            action = SpaActionTrigger.Foam;
-            facewashBottel.SetActive(false);
-            foam.SetActive(true);
-            handAnim.SetActive(true);
+            nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
         }
         else if (action == SpaActionTrigger.Foam)
         {
-            nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
-            action = SpaActionTrigger.Remover;
-            facewash.SetActive(false);
-            handAnim.SetActive(false);
-            remover.SetActive(true);
+            nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
+
         }
         else if (action == SpaActionTrigger.Remover)
         {
-            //index = 1;
             if (clappingSFX) clappingSFX.Play();
             nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
-            action = SpaActionTrigger.Remover;
+            action = SpaActionTrigger.none;
             remover.SetActive(false);
             foam.SetActive(false);
-            play();
+            
         }
     }
     #endregion
