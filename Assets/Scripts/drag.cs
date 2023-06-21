@@ -71,23 +71,40 @@ public class drag : MonoBehaviour
     void OnMouseDown()
     {
         MouseDown.Invoke();
-        if(gameObject.name == "WaterJar")
+        if (gameObject.name == "SerumDropper")
         {
-            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 96));
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0f));
         }
-
+        if (gameObject.name == "FacewashBottel")
+        {
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0f));
+        }
+        if (gameObject.name == "WaterJar")
+        {
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 96f));
+        }
     }
     void OnMouseUp()
     {
+        MouseUp.Invoke();
         if (SpaController)
         {
+
             SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
         }
         if (UbtanController)
         {
+
             UbtanController.playerElements.eyes.sprite = UbtanController.eyeSprites[1];
         }
-        MouseUp.Invoke();
+        if (gameObject.name == "SerumDropper")
+        {
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 40f));
+        }
+        if (gameObject.name == "FacewashBottel")
+        {
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -26f));
+        }
         if (gameObject.name == "WaterJar")
         {
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 51.5f));
@@ -136,11 +153,11 @@ public class drag : MonoBehaviour
             col.enabled = false;
             if (didTrigger <= 2)
             {
-                Invoke("ObjectActivation", 1f);
+                Invoke("ObjectActivation", 1.5f);
             }
             else if (didTrigger >= totalTriggers)
             {
-                Invoke("doneFunctionInvoke", 1f);
+                Invoke("doneFunctionInvoke", 1.5f);
             }
         }
         else if (col.gameObject.name == "Serum" && gameObject.name == "SerumDropper")
@@ -211,6 +228,7 @@ public class drag : MonoBehaviour
         else if(col.gameObject.name == "YellowLayer" && gameObject.name == "Leaf")
         {
             UbtanController.removerSFX.Play();
+            UbtanController.Indication.SetActive(false);
             col.transform.GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetComponent<Image>().color.a + 0.2f);
             if(col.transform.GetComponent<Image>().color.a >= 1 && UbtanController.mehndiPot.activeSelf)
             {
@@ -220,10 +238,11 @@ public class drag : MonoBehaviour
         }
         else if ((col.gameObject.name == "YellowLayer" || col.gameObject.name == "WaterDrops") && gameObject.name == "WaterJar")
         {
+            UbtanController.Indication.SetActive(false);
             if (col.gameObject.name == "YellowLayer")
             {
                 col.transform.GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetComponent<Image>().color.a - 0.2f);
-                if(col.transform.GetComponent<Image>().color.a <= 0)
+                if(col.transform.GetComponent<Image>().color.a <= 0.5)
                 {
                     mehndiRemove = true;
                 }  
@@ -246,9 +265,18 @@ public class drag : MonoBehaviour
                 UbtanController.waterJar.SetActive(false);
             }
         }
-        else if (col.gameObject.name == "WaterDrops" && gameObject.name == "Cleaner")
+        else if ((col.gameObject.name == "YellowLayer" || col.gameObject.name == "WaterDrops") && gameObject.name == "Cleaner")
         {
+            UbtanController.Indication.SetActive(false);
             UbtanController.removerSFX.Play();
+            if (col.gameObject.name == "YellowLayer")
+            {
+                col.transform.GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetComponent<Image>().color.a - 0.2f);
+                if (col.transform.GetComponent<Image>().color.a <= 0)
+                {
+                    mehndiRemove = true;
+                }
+            }
             if (col.gameObject.name == "WaterDrops")
             {
                 for (int i = 0; i < 10; i++)

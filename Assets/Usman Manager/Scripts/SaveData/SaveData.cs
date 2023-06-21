@@ -37,6 +37,7 @@ public class GamePlayModeElements
     public List<bool> earing = new List<bool>();
     public List<bool> eyeshade = new List<bool>();
     public List<bool> hair = new List<bool>();
+    public List<bool> lips = new List<bool>();
     public List<bool> mathapati = new List<bool>();
     public List<bool> mehandi = new List<bool>();
     public List<bool> necklace = new List<bool>();

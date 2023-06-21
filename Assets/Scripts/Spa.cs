@@ -38,8 +38,10 @@ public class Spa : MonoBehaviour
     public Image[] foamArray;
     public Sprite [] lipsSprites;
     public Sprite[] eyeSprites;
-    public Image characterImage;
-    public Sprite[] characters;
+    public Image characterBody;
+    public Image characterFace;
+    public Sprite[] characterBodys;
+    public Sprite[] characterFaces;
     public Image LipsImage;
     public Image eyesImage;
     public Animator eyesAnimator;
@@ -58,7 +60,8 @@ public class Spa : MonoBehaviour
     #region Start Function
     void Start()
     {
-        //characterImage.sprite = characters[SaveData.Instance.selectedCharacter];
+        characterBody.sprite = characterBodys[SaveData.Instance.selectedCharacter];
+        characterFace.sprite = characterFaces[SaveData.Instance.selectedCharacter];
         action = SpaActionTrigger.PimplePoper;
         //StartCoroutine(AdDelay(60));
     }

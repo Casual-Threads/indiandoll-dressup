@@ -18,7 +18,7 @@ public class GamePlayElements
     public GameObject videoAdNotAvailablePopUp;
     [Header("Scrollers")]
     public GameObject allScroller;
-    public GameObject dressScroller, bangleScroller, earingScroller, necklaceScroller, mathapatiScroller, noseringScroller, bindiScroller, mehandiScroller, bagScroller, hairScroller,
+    public GameObject dressScroller, bangleScroller, earingScroller, necklaceScroller, mathapatiScroller, noseringScroller, bindiScroller, mehandiScroller, bagScroller, hairScroller, lipsScroller,
                       blushScroller, closedEyeshadeScroller, eyeshadeScroller;
     [Header("UI")]
     public GameObject coinSlot;
@@ -35,7 +35,7 @@ public class GamePlayPlayerElenemts
     public GameObject character;
     [Header("Player Images")]
     public Image dressImage;
-    public Image bangleImage, earingImage, necklaceImage, mathapatiImage, noseringImage, bindiImage, mehandiImage, bagImage, hairImage, blushImage, closedEyeshadeImage, eyeshadeImage;
+    public Image bangleImage, earingImage, necklaceImage, mathapatiImage, noseringImage, bindiImage, mehandiImage, bagImage, lipsImage, hairImage, blushImage, closedEyeshadeImage, eyeshadeImage;
     [Header("Player Score Text")]
     [Header("Player ScoreBox")]
     public GameObject playerScoreBox;
@@ -49,13 +49,13 @@ public class GamePlayOpponentElenemts
     public GameObject characterLeft;
     public GameObject characterRight;
     [Header("Left Opponent Images")]
-    public Image leftOppodressImage;
-    public Image leftOppobangleImage, leftOppoearingImage, leftOpponecklaceImage, leftOppomathapatiImage, leftOpponoseringImage, leftOppobindiImage, leftOppomehandiImage, leftOppobagImage,
-                 leftOppohairImage, leftOppoblushImage, leftOppoclosedEyeshadeImage, leftOppoeyeshadeImage;
+    public Image leftCharacterBody;
+    public Image leftCharacterFace, leftOppodressImage, leftOppobangleImage, leftOppoearingImage, leftOpponecklaceImage, leftOppomathapatiImage, leftOpponoseringImage, leftOppobindiImage,
+                 leftOppomehandiImage, leftOppobagImage, leftOppohairImage, leftOppolipsImage, leftOppoblushImage, leftOppoclosedEyeshadeImage, leftOppoeyeshadeImage;
     [Header("Right Opponent Images")]
-    public Image rightOppodressImage;
-    public Image rightOppobangleImage, rightOppoearingImage, rightOpponecklaceImage, rightOppomathapatiImage, rightOpponoseringImage, rightOppobindiImage, rightOppomehandiImage,
-                 rightOppobagImage, rightOppohairImage, rightOppoblushImage, rightOppoclosedEyeshadeImage, rightOppoeyeshadeImage;
+    public Image rightCharacterBody;
+    public Image rightCharacterFace, rightOppodressImage, rightOppobangleImage, rightOppoearingImage, rightOpponecklaceImage, rightOppomathapatiImage, rightOpponoseringImage,
+                 rightOppobindiImage, rightOppomehandiImage, rightOppobagImage, rightOppohairImage, rightOppolipsImage, rightOppoblushImage, rightOppoclosedEyeshadeImage, rightOppoeyeshadeImage;
     [Header("Opponents ScoreBox")]
     public GameObject leftOppoScoreBox;
     public GameObject rightOppoScoreBox;
@@ -67,7 +67,7 @@ public class GamePlayOpponentElenemts
 [System.Serializable]
 public enum GamePlaySelectedItem
 {
-    dress, bangle, earing, necklace, mathapati, nosering, bindi, mehandi, bag, hair, blush, closedEyeshade, eyeshade
+    dress, bangle, earing, necklace, mathapati, nosering, bindi, mehandi, bag, hair, lips, blush, closedEyeshade, eyeshade
 }
 
 public class GamePlay : MonoBehaviour
@@ -111,6 +111,7 @@ public class GamePlay : MonoBehaviour
     public Sprite[] mehandiSprites;
     public Sprite[] bagSprites;
     public Sprite[] hairSprites;
+    public Sprite[] lipsSprites;
     public Sprite[] blushSprites;
     public Sprite[] closedEyeshadeSprites;
     public Sprite[] eyeshadeSprites;
@@ -129,6 +130,7 @@ public class GamePlay : MonoBehaviour
     private List<ItemInfo> mehandiList = new List<ItemInfo>();
     private List<ItemInfo> bagList = new List<ItemInfo>();
     private List<ItemInfo> hairList = new List<ItemInfo>();
+    private List<ItemInfo> lipsList = new List<ItemInfo>();
     private List<ItemInfo> blushList = new List<ItemInfo>();
     private List<ItemInfo> closedEyeshadeList = new List<ItemInfo>();
     private List<ItemInfo> eyeshadeList = new List<ItemInfo>();
@@ -153,10 +155,12 @@ public class GamePlay : MonoBehaviour
     public AudioSource purchaseSFX, scoreSFX;
     public AudioSource[] voiceSounds;
     public Animator eyeAnim;
-    public Image characterImage;
-    public Sprite[] characters;
+    public Image characterBody;
+    public Image characterFace;
+    public Sprite[] characterBodys;
+    public Sprite[] characterFaces;
 
-    bool Isdress, Isbangle, Isearing, Isnecklace, Ismathapati, Isnosering, Isbindi, Ismehandi, Isbag, Ishair, Isblush, IsclosedEyeshade, Iseyeshade;
+    bool Isdress, Isbangle, Isearing, Isnecklace, Ismathapati, Isnosering, Isbindi, Ismehandi, Isbag, Ishair, Islips, Isblush, IsclosedEyeshade, Iseyeshade;
 
     private enum RewardType
     {
@@ -169,7 +173,8 @@ public class GamePlay : MonoBehaviour
     void Start()
     {
         Usman_SaveLoad.LoadProgress();
-        //characterImage.sprite = characters[SaveData.Instance.selectedCharacter];
+        characterBody.sprite = characterBodys[SaveData.Instance.selectedCharacter];
+        characterFace.sprite = characterFaces[SaveData.Instance.selectedCharacter];
         selectedItem = GamePlaySelectedItem.dress;
         uIElements.dressScroller.SetActive(true);
         SetInitialValues();
@@ -337,6 +342,19 @@ public class GamePlay : MonoBehaviour
         SetItemIcon(hairList, hairSprites);
         #endregion
 
+        #region Initialing lips
+        if (uIElements.lipsScroller)
+        {
+            var lipsInfo = uIElements.lipsScroller.GetComponentsInChildren<ItemInfo>();
+            for (int i = 0; i < lipsInfo.Length; i++)
+            {
+                lipsList.Add(lipsInfo[i]);
+            }
+        }
+        SetupItemData(SaveData.Instance.GamePlayModeElements.lips, lipsList);
+        SetItemIcon(lipsList, lipsSprites);
+        #endregion
+
         #region Initialing blush
         if (uIElements.blushScroller)
         {
@@ -476,6 +494,10 @@ public class GamePlay : MonoBehaviour
         {
             CheckSelectedItem(hairList, hairSprites, playerElements.hairImage);
         }
+        else if (selectedItem == GamePlaySelectedItem.lips)
+        {
+            CheckSelectedItem(lipsList, lipsSprites, playerElements.lipsImage);
+        }
         else if (selectedItem == GamePlaySelectedItem.bindi)
         {
             CheckSelectedItem(bindiList, bindiSprites, playerElements.bindiImage);
@@ -577,6 +599,10 @@ public class GamePlay : MonoBehaviour
                             {
                                 Ishair = true;
                             }
+                            else if (selectedItem == GamePlaySelectedItem.lips)
+                            {
+                                Islips = true;
+                            }
                             else if (selectedItem == GamePlaySelectedItem.blush)
                             {
                                 Isblush = true;
@@ -658,6 +684,10 @@ public class GamePlay : MonoBehaviour
         else if (selectedItem == GamePlaySelectedItem.hair)
         {
             SetItemsInfo(hairList);
+        }
+        else if (selectedItem == GamePlaySelectedItem.lips)
+        {
+            SetItemsInfo(lipsList);
         }
         else if (selectedItem == GamePlaySelectedItem.bindi)
         {
@@ -744,6 +774,7 @@ public class GamePlay : MonoBehaviour
         uIElements.eyeshadeScroller.SetActive(false);
         uIElements.necklaceScroller.SetActive(false);
         uIElements.hairScroller.SetActive(false);
+        uIElements.lipsScroller.SetActive(false);
         uIElements.bindiScroller.SetActive(false);
         uIElements.mehandiScroller.SetActive(false);
         uIElements.blushScroller.SetActive(false);
@@ -808,6 +839,11 @@ public class GamePlay : MonoBehaviour
             selectedItem = GamePlaySelectedItem.hair;
             uIElements.hairScroller.SetActive(true);
         }
+        else if (index == (int)GamePlaySelectedItem.lips)
+        {
+            selectedItem = GamePlaySelectedItem.lips;
+            uIElements.lipsScroller.SetActive(true);
+        }
         else if (index == (int)GamePlaySelectedItem.bindi)
         {
             selectedItem = GamePlaySelectedItem.bindi;
@@ -870,6 +906,10 @@ public class GamePlay : MonoBehaviour
         else if (selectedItem == GamePlaySelectedItem.hair)
         {
             SaveData.Instance.GamePlayModeElements.hair[selectedIndex] = false;
+        }
+        else if (selectedItem == GamePlaySelectedItem.lips)
+        {
+            SaveData.Instance.GamePlayModeElements.lips[selectedIndex] = false;
         }
         else if (selectedItem == GamePlaySelectedItem.bindi)
         {
@@ -1060,6 +1100,7 @@ public class GamePlay : MonoBehaviour
             waitAdLoadTime.text = ".1";
             yield return new WaitForSeconds(1f);
             waitAdLoadTime.text = "0";
+            yield return new WaitForSeconds(0.5f);
             uIElements.adPanel.SetActive(false);
         }
         ShowInterstitial();
@@ -1088,6 +1129,24 @@ public class GamePlay : MonoBehaviour
     private void LeftOpponentDressing()
     {
         int randomIndex = 0;
+        #region body
+        randomIndex = Random.Range(0, characterBodys.Length);
+        if (characterBodys[randomIndex] && oppoElements.leftCharacterBody)
+        {
+            oppoElements.leftCharacterBody.gameObject.SetActive(true);
+            oppoElements.leftCharacterBody.sprite = characterBodys[randomIndex];
+        }
+        #endregion
+        
+        #region face
+        randomIndex = Random.Range(0, characterFaces.Length);
+        if (characterFaces[randomIndex] && oppoElements.leftCharacterFace)
+        {
+            oppoElements.leftCharacterFace.gameObject.SetActive(true);
+            oppoElements.leftCharacterFace.sprite = characterFaces[randomIndex];
+        }
+        #endregion
+
         #region dress
         randomIndex = Random.Range(0, dressList.Count);
         if (dressList[randomIndex] && oppoElements.leftOppodressImage)
@@ -1121,6 +1180,15 @@ public class GamePlay : MonoBehaviour
         {
             oppoElements.leftOppohairImage.gameObject.SetActive(true);
             oppoElements.leftOppohairImage.sprite = hairSprites[randomIndex];
+        }
+        #endregion
+
+        #region lips
+        randomIndex = Random.Range(0, lipsList.Count);
+        if (lipsList[randomIndex] && oppoElements.leftOppolipsImage)
+        {
+            oppoElements.leftOppolipsImage.gameObject.SetActive(true);
+            oppoElements.leftOppolipsImage.sprite = lipsSprites[randomIndex];
         }
         #endregion
 
@@ -1211,6 +1279,24 @@ public class GamePlay : MonoBehaviour
     private void RightOpponentDressing()
     {
         int randomIndex = 0;
+        #region body
+        randomIndex = Random.Range(0, characterBodys.Length);
+        if (characterBodys[randomIndex] && oppoElements.rightCharacterBody)
+        {
+            oppoElements.rightCharacterBody.gameObject.SetActive(true);
+            oppoElements.rightCharacterBody.sprite = characterBodys[randomIndex];
+        }
+        #endregion
+
+        #region face
+        randomIndex = Random.Range(0, characterFaces.Length);
+        if (characterFaces[randomIndex] && oppoElements.rightCharacterFace)
+        {
+            oppoElements.rightCharacterFace.gameObject.SetActive(true);
+            oppoElements.rightCharacterFace.sprite = characterFaces[randomIndex];
+        }
+        #endregion
+
         #region dress
         randomIndex = Random.Range(0, dressList.Count);
         if (dressList[randomIndex] && oppoElements.rightOppodressImage)
@@ -1244,6 +1330,15 @@ public class GamePlay : MonoBehaviour
         {
             oppoElements.rightOppohairImage.gameObject.SetActive(true);
             oppoElements.rightOppohairImage.sprite = hairSprites[randomIndex];
+        }
+        #endregion
+
+        #region lips
+        randomIndex = Random.Range(0, lipsList.Count);
+        if (lipsList[randomIndex] && oppoElements.rightOppolipsImage)
+        {
+            oppoElements.rightOppolipsImage.gameObject.SetActive(true);
+            oppoElements.rightOppolipsImage.sprite = lipsSprites[randomIndex];
         }
         #endregion
 

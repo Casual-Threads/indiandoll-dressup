@@ -10,7 +10,8 @@ public class CharacterSelection : MonoBehaviour
     [Header("Arrays")]
     public ItemInfo[] itemInfo;
     public MRS_Manager[] characters;
-    public Button nextBtn,BackBtn;
+    public Button nextBtn;
+    public Button backBtn, playBtn;
     public GameObject loadingPanel;
     public GameObject videoAdNotAvailablePopUp;
     public Image fillBar;
@@ -33,6 +34,7 @@ public class CharacterSelection : MonoBehaviour
         Usman_SaveLoad.LoadProgress();
         SetInitialProps();
         GetItemsInfo();
+        SetplayBtnInteractable(counter);
     }
 
     void OnEnable()
@@ -103,9 +105,9 @@ public class CharacterSelection : MonoBehaviour
     public void Movenext(bool moveNext)
     {
         nextBtn.interactable = true;
-        BackBtn.interactable = true;
-        BackBtn.GetComponent<ScalePingPong>().enabled = true;
+        backBtn.interactable = true;
         nextBtn.GetComponent<ScalePingPong>().enabled = true;
+        backBtn.GetComponent<ScalePingPong>().enabled = true;
         if (moveNext)
         {
             if (counter < characters.Length - 1)
@@ -133,19 +135,20 @@ public class CharacterSelection : MonoBehaviour
                 characters[counter - 1].Move(new Vector3(0, 545, 0), 0.7f, true, false);
                 if (counter == 1)
                 {
-                    BackBtn.interactable = false;
-                    BackBtn.GetComponent<ScalePingPong>().enabled = false;
+                    backBtn.interactable = false;
+                    backBtn.GetComponent<ScalePingPong>().enabled = false;
                 }
                 counter--;
             }
             else
             {
-                BackBtn.interactable = false;
-                BackBtn.GetComponent<ScalePingPong>().enabled = false;
+                backBtn.interactable = false;
+                backBtn.GetComponent<ScalePingPong>().enabled = false;
 
             }
         }
         SaveData.Instance.selectedCharacter = counter;
+        SetplayBtnInteractable(counter);
     }
     #endregion
 
@@ -172,14 +175,40 @@ public class CharacterSelection : MonoBehaviour
         rewardType = RewardType.selectionItem;
         if (itemInfo[selectedIndex].isLocked)
         {
+            playBtn.GetComponent<ScalePingPong>().enabled = false;
+            playBtn.interactable = false;
             if (itemInfo[selectedIndex].videoUnlock)
             {
+                //OnRewardedVideoComplete();
                 CheckVideoStatus();
             }
+        }
+        else
+        {
+            playBtn.GetComponent<ScalePingPong>().enabled = true;
+            playBtn.interactable = true;
         }
         GetItemsInfo();
     }
     #endregion
+
+    #region Set Play Butoon Interactable
+    private void SetplayBtnInteractable(int Index)
+    {
+        if (itemInfo[Index].isLocked)
+        {
+            playBtn.GetComponent<ScalePingPong>().enabled = false;
+            playBtn.interactable = false;
+        }
+        else
+        {
+            playBtn.GetComponent<ScalePingPong>().enabled = true;
+            playBtn.interactable = true;
+        }
+        GetItemsInfo();
+    }
+    #endregion
+
 
     #region CheckVideoStatus
     public void CheckVideoStatus()
@@ -213,6 +242,7 @@ public class CharacterSelection : MonoBehaviour
             itemInfo[selectedIndex].isLocked = false;
             SaveData.Instance.ModeProps[selectedIndex].isLocked = false;
             SelectItem(selectedIndex);
+            Usman_SaveLoad.SaveProgress();
         }
         GetItemsInfo();
         rewardType = RewardType.none;
@@ -227,6 +257,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void Play(string modeName)
     {
+        loadingPanel.SetActive(true);
         StartCoroutine(LoadingPanel(modeName));
     }
     IEnumerator LoadingPanel(string mode)

@@ -62,7 +62,7 @@ public class Ubtan : MonoBehaviour
     public GameObject waterJar, cleaner;
     [Header("Ubtan Items")]
     public GameObject yellowLayer;
-    public GameObject waterDrops;
+    public GameObject waterDrops, Indication;
     public Image[] waterArray;
     public Sprite[] jewellerySprites;
     public Sprite[] jewelleryIconSprites;
@@ -82,14 +82,17 @@ public class Ubtan : MonoBehaviour
     public AudioSource removerSFX;
     public GameObject loadingPanel;
     public Image fillBar;
-    public Image characterImage;
-    public Sprite[] characters;
+    public Image characterBody;
+    public Image characterFace;
+    public Sprite[] characterBodys;
+    public Sprite[] characterFaces;
 
     // Start is called before the first frame update
     #region Start Function
     void Start()
     {
-        //characterImage.sprite = characters[SaveData.Instance.selectedCharacter];
+        characterBody.sprite = characterBodys[SaveData.Instance.selectedCharacter];
+        characterFace.sprite = characterFaces[SaveData.Instance.selectedCharacter];
         action = UbtanActionTrigger.Mehndi;
         SetInitialValues();
         GetItemsInfo();
@@ -270,11 +273,13 @@ public class Ubtan : MonoBehaviour
         {
             nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             action = UbtanActionTrigger.Water;
+            Indication.SetActive(true);
         }
         else if(action == UbtanActionTrigger.Water)
         {
             nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             action = UbtanActionTrigger.Cleaning;
+            Indication.SetActive(true);
         }
         else if(action == UbtanActionTrigger.none)
         {
