@@ -148,7 +148,7 @@ public class GamePlay : MonoBehaviour
     [Header("Bool Variable")]
     private bool canShowInterstitial;
     [Header("Particles")]
-    public GameObject taskPartical;
+    public ParticleSystem taskPartical;
     public GameObject finalPartical;
     [Header("AudioSources")]
     public AudioSource categorySFX;
@@ -622,7 +622,7 @@ public class GamePlay : MonoBehaviour
                             {
                                 uIElements.nextBtn.SetActive(true);
                             }
-                            if (taskPartical) taskPartical.SetActive(true);
+                            if (taskPartical) taskPartical.Play();
                             voiceSounds[Random.Range(0, voiceSounds.Length)].Play();
                             itemImage.gameObject.SetActive(false);
                             itemImage.gameObject.SetActive(true);
@@ -631,6 +631,7 @@ public class GamePlay : MonoBehaviour
                         }
                     }
                 }
+                //if (taskPartical) taskPartical.SetActive(false);
                 CheckInterstitialAD();
             }
         }
