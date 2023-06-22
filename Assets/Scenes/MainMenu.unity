@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 93440109}
   - component: {fileID: 93440108}
   - component: {fileID: 93440107}
+  - component: {fileID: 93440111}
   m_Layer: 5
   m_Name: VideoIcon
   m_TagString: Untagged
@@ -419,6 +420,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93440105}
   m_CullTransparentMesh: 1
+--- !u!114 &93440111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93440105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0.2
+  canWait: 0
+  waitTime: 0
 --- !u!1 &106742465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,6 +2004,7 @@ GameObject:
   - component: {fileID: 837715036}
   - component: {fileID: 837715035}
   - component: {fileID: 837715038}
+  - component: {fileID: 837715039}
   m_Layer: 5
   m_Name: VideoIcon
   m_TagString: Untagged
@@ -2119,6 +2136,21 @@ MonoBehaviour:
   videoUnlock: 0
   coinsUnlock: 0
   requiredCoins: 0
+--- !u!114 &837715039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837715033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0.2
+  canWait: 0
+  waitTime: 0
 --- !u!1 &846381085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,6 +2644,7 @@ GameObject:
   - component: {fileID: 1031009408}
   - component: {fileID: 1031009407}
   - component: {fileID: 1031009406}
+  - component: {fileID: 1031009410}
   m_Layer: 5
   m_Name: VideoIcon
   m_TagString: Untagged
@@ -2743,6 +2776,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031009404}
   m_CullTransparentMesh: 1
+--- !u!114 &1031009410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031009404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0.2
+  canWait: 0
+  waitTime: 0
 --- !u!1 &1033025853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,7 +3040,6 @@ GameObject:
   - component: {fileID: 1080182844}
   - component: {fileID: 1080182843}
   - component: {fileID: 1080182842}
-  - component: {fileID: 1080182845}
   m_Layer: 5
   m_Name: BackBtn
   m_TagString: Untagged
@@ -3126,21 +3173,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080182840}
   m_CullTransparentMesh: 1
---- !u!114 &1080182845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080182840}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 0.5
-  canWait: 0
-  waitTime: 0
 --- !u!1 &1101918831
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,6 +3468,7 @@ GameObject:
   - component: {fileID: 1206916932}
   - component: {fileID: 1206916931}
   - component: {fileID: 1206916930}
+  - component: {fileID: 1206916934}
   m_Layer: 5
   m_Name: VideoIcon
   m_TagString: Untagged
@@ -3567,6 +3600,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206916928}
   m_CullTransparentMesh: 1
+--- !u!114 &1206916934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206916928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0.2
+  canWait: 0
+  waitTime: 0
 --- !u!1 &1255327660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,7 +3861,6 @@ GameObject:
   - component: {fileID: 1325200921}
   - component: {fileID: 1325200920}
   - component: {fileID: 1325200919}
-  - component: {fileID: 1325200923}
   m_Layer: 5
   m_Name: NextBtn
   m_TagString: Untagged
@@ -3947,21 +3994,6 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -150}
   m_SizeDelta: {x: 140, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1325200923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325200918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 0.5
-  canWait: 0
-  waitTime: 0
 --- !u!1 &1349058754
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,6 +4203,7 @@ GameObject:
   - component: {fileID: 1566812542}
   - component: {fileID: 1566812541}
   - component: {fileID: 1566812540}
+  - component: {fileID: 1566812544}
   m_Layer: 5
   m_Name: VideoIcon
   m_TagString: Untagged
@@ -4302,6 +4335,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566812538}
   m_CullTransparentMesh: 1
+--- !u!114 &1566812544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566812538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6421b59ab4c71fa47be6827177ac4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0.2
+  canWait: 0
+  waitTime: 0
 --- !u!1 &1588048692
 GameObject:
   m_ObjectHideFlags: 0

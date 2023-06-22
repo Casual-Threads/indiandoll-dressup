@@ -1103,6 +1103,8 @@ public class GamePlay : MonoBehaviour
             waitAdLoadTime.text = "0";
             yield return new WaitForSeconds(0.5f);
             uIElements.adPanel.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+            waitAdLoadTime.text = "...3";
         }
         ShowInterstitial();
     }
@@ -1517,7 +1519,7 @@ public class GamePlay : MonoBehaviour
         uIElements.screenShotPanel.SetActive(false);
         uIElements.submitPanel.SetActive(true);
         Destroy(_Taxture);
-        Invoke("Submitted", 1f);
+        Invoke("Submitted", 0.7f);
     }
     #endregion
 }

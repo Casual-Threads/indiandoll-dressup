@@ -106,8 +106,6 @@ public class CharacterSelection : MonoBehaviour
     {
         nextBtn.interactable = true;
         backBtn.interactable = true;
-        nextBtn.GetComponent<ScalePingPong>().enabled = true;
-        backBtn.GetComponent<ScalePingPong>().enabled = true;
         if (moveNext)
         {
             if (counter < characters.Length - 1)
@@ -118,13 +116,11 @@ public class CharacterSelection : MonoBehaviour
                 if (counter == characters.Length - 1)
                 {
                     nextBtn.interactable = false;
-                    nextBtn.GetComponent<ScalePingPong>().enabled = false;
                 }
             }
             else
             {
                 nextBtn.interactable = false;
-                nextBtn.GetComponent<ScalePingPong>().enabled = false;
             }
         }
         else
@@ -136,14 +132,12 @@ public class CharacterSelection : MonoBehaviour
                 if (counter == 1)
                 {
                     backBtn.interactable = false;
-                    backBtn.GetComponent<ScalePingPong>().enabled = false;
                 }
                 counter--;
             }
             else
             {
                 backBtn.interactable = false;
-                backBtn.GetComponent<ScalePingPong>().enabled = false;
 
             }
         }

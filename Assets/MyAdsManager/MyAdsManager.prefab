@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,17 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adsType: 0
   AdmobBannerPosition: 0
-  AdmobAppId: 
-  AdmobBannerId: 
-  AdmobInterstitialID: 
-  AdmobRVId: 
+  AdmobAppId: ca-app-pub-9352588904405000~5440473179
+  AdmobBannerId: ca-app-pub-9352588904405000/4127391501
+  AdmobInterstitialID: ca-app-pub-9352588904405000/9120713798
+  AdmobRVId: ca-app-pub-9352588904405000/7807632122
   AdmobNativeId: 
   AdmobAppOpenId: 
   applovinBannerPosition: 1
-  MaxSdkKey: Eii0lqMx5nRJ9H7FwV1aH1IBsJUXdDcK0LJqId0ZIkWxH3GzgCu7ZmaLbW_VUqO5aovzq_TqzUaJcwOw6zr2hc
-  BannerAdUnitId: ENTER_BANNER_AD_UNIT_ID_HERE
-  InterstitialAdUnitId: ENTER_INTERSTITIAL_AD_UNIT_ID_HERE
-  RewardedAdUnitId: ENTER_REWARD_AD_UNIT_ID_HERE
+  MaxSdkKey: Za7F7M5J31fxPs_T58DHF3ZUilfxPreUoArf_mOW1DynJBnFBiEwAboTiJk0zpqz4F_wEDN4z_OPJme2HmT4Df
+  BannerAdUnitId: 67f00cd3704f1121
+  InterstitialAdUnitId: 4bb58687c58c4b96
+  RewardedAdUnitId: 9a3a6a060d9bb8e8
   RewardedInterstitialAdUnitId: ENTER_REWARD_INTER_AD_UNIT_ID_HERE
   MRecAdUnitId: ENTER_MREC_AD_UNIT_ID_HERE
   isDebugLog: 0
@@ -63,6 +64,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnAdmobBannerAdLoaded
         m_Mode: 1
         m_Arguments:
@@ -77,6 +79,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnAdmobBannerAdFailToLoad
         m_Mode: 1
         m_Arguments:
@@ -91,6 +94,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnInterstitialLoaded
         m_Mode: 1
         m_Arguments:
@@ -105,6 +109,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnInterstitialClosed
         m_Mode: 1
         m_Arguments:
@@ -119,6 +124,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnRewardedLoaded
         m_Mode: 1
         m_Arguments:
@@ -133,6 +139,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnRewardEarned
         m_Mode: 1
         m_Arguments:
@@ -147,6 +154,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1826572841646777255}
+        m_TargetAssemblyTypeName: 
         m_MethodName: OnRewardClosed
         m_Mode: 1
         m_Arguments:

@@ -206,6 +206,14 @@ public class Ubtan : MonoBehaviour
                 {
                     if (itemImage)
                     {
+                        if(selectedItem == UbtanSelectedItem.gajra)
+                        {
+                            nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
+                        }
+                        else if(selectedItem == UbtanSelectedItem.jewellery)
+                        {
+                            nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
+                        }
                         if (itemChangeSFX) itemChangeSFX.Play();
                         itemImage.gameObject.SetActive(false);
                         itemImage.gameObject.SetActive(true);
@@ -255,6 +263,7 @@ public class Ubtan : MonoBehaviour
         }
         else if (selectedItem == UbtanSelectedItem.gajra)
         {
+            nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
             selectedItem = UbtanSelectedItem.jewellery;
             uIElements.gajraObject.SetActive(false);
             uIElements.jewelleryObject.SetActive(true);
@@ -283,7 +292,7 @@ public class Ubtan : MonoBehaviour
         }
         else if(action == UbtanActionTrigger.none)
         {
-            nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
+            //nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             selectedItem = UbtanSelectedItem.gajra;
             uIElements.gajraObject.SetActive(true);
             nextBtn.gameObject.SetActive(true);
