@@ -37,13 +37,15 @@ public class Spa : MonoBehaviour
     [Header("Spa Arrays")]
     public Image[] foamArray;
     public Sprite [] lipsSprites;
-    public Sprite[] eyeSprites;
+    //public Sprite[] eyeSprites;
+    public Sprite[] closeEyeSprites;
     public Image characterBody;
     public Image characterFace;
     public Sprite[] characterBodys;
     public Sprite[] characterFaces;
     public Image LipsImage;
     public Image eyesImage;
+    public Image closeEyesImage;
     public Animator eyesAnimator;
     public MRS_Manager nextBtn;
 
@@ -62,6 +64,8 @@ public class Spa : MonoBehaviour
     {
         characterBody.sprite = characterBodys[SaveData.Instance.selectedCharacter];
         characterFace.sprite = characterFaces[SaveData.Instance.selectedCharacter];
+        //eyesImage.sprite = closeEyeSprites[SaveData.Instance.selectedCharacter];
+        closeEyesImage.sprite = closeEyeSprites[SaveData.Instance.selectedCharacter];
         action = SpaActionTrigger.PimplePoper;
         //StartCoroutine(AdDelay(60));
     }

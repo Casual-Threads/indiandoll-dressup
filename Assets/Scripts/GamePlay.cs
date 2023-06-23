@@ -159,6 +159,8 @@ public class GamePlay : MonoBehaviour
     public Image characterFace;
     public Sprite[] characterBodys;
     public Sprite[] characterFaces;
+    public Sprite[] closeEyeSprites;
+    public Image closeEyesImage;
 
     bool Isdress, Isbangle, Isearing, Isnecklace, Ismathapati, Isnosering, Isbindi, Ismehandi, Isbag, Ishair, Islips, Isblush, IsclosedEyeshade, Iseyeshade;
 
@@ -175,6 +177,7 @@ public class GamePlay : MonoBehaviour
         Usman_SaveLoad.LoadProgress();
         characterBody.sprite = characterBodys[SaveData.Instance.selectedCharacter];
         characterFace.sprite = characterFaces[SaveData.Instance.selectedCharacter];
+        closeEyesImage.sprite = closeEyeSprites[SaveData.Instance.selectedCharacter];
         selectedItem = GamePlaySelectedItem.dress;
         uIElements.dressScroller.SetActive(true);
         SetInitialValues();
@@ -618,7 +621,7 @@ public class GamePlay : MonoBehaviour
                                 Iseyeshade = true;
                             }
                             if (Isdress == true && Isbangle == true && Isearing == true && Isnecklace == true && Ismathapati == true && Isnosering == true && Isbindi == true && Ismehandi == true && Isbag == true
-                            && Ishair == true && Isblush == true && IsclosedEyeshade == true && Iseyeshade == true)
+                            && Ishair == true && Islips == true && Isblush == true && IsclosedEyeshade == true && Iseyeshade == true)
                             {
                                 uIElements.nextBtn.SetActive(true);
                             }
@@ -1138,6 +1141,7 @@ public class GamePlay : MonoBehaviour
         {
             oppoElements.leftCharacterBody.gameObject.SetActive(true);
             oppoElements.leftCharacterBody.sprite = characterBodys[randomIndex];
+            oppoElements.leftOppoclosedEyeshadeImage.sprite = closeEyeSprites[randomIndex];
         }
         #endregion
         
@@ -1213,7 +1217,7 @@ public class GamePlay : MonoBehaviour
         }
         #endregion
 
-        #region eybrow
+        #region closedEyeshade
         randomIndex = Random.Range(0, closedEyeshadeList.Count);
         if (closedEyeshadeList[randomIndex] && oppoElements.leftOppoclosedEyeshadeImage)
         {
@@ -1288,6 +1292,7 @@ public class GamePlay : MonoBehaviour
         {
             oppoElements.rightCharacterBody.gameObject.SetActive(true);
             oppoElements.rightCharacterBody.sprite = characterBodys[randomIndex];
+            oppoElements.rightOppoclosedEyeshadeImage.sprite = closeEyeSprites[randomIndex];
         }
         #endregion
 

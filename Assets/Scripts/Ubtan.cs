@@ -34,7 +34,7 @@ public class UbtanPlayerElenemts
     public GameObject character;
     [Header("Player Images")]
     public Image jewelleryImage;
-    public Image gajraImage, eyes/*Open, eyesClose*/;
+    public Image gajraImage, eyesImage, closeEyesImage;
 
 }
 public class Ubtan : MonoBehaviour
@@ -67,7 +67,7 @@ public class Ubtan : MonoBehaviour
     public Sprite[] jewellerySprites;
     public Sprite[] jewelleryIconSprites;
     public Sprite[] gajraSprites;
-    public Sprite[] eyeSprites;
+    public Sprite[] closeEyeSprites;
     [Header("Item List")]
     private List<ItemInfo> jewelleryList = new List<ItemInfo>();
     private List<ItemInfo> gajraList = new List<ItemInfo>();
@@ -93,6 +93,7 @@ public class Ubtan : MonoBehaviour
     {
         characterBody.sprite = characterBodys[SaveData.Instance.selectedCharacter];
         characterFace.sprite = characterFaces[SaveData.Instance.selectedCharacter];
+        playerElements.closeEyesImage.sprite = closeEyeSprites[SaveData.Instance.selectedCharacter];
         action = UbtanActionTrigger.Mehndi;
         SetInitialValues();
         GetItemsInfo();
@@ -286,6 +287,10 @@ public class Ubtan : MonoBehaviour
         }
         else if(action == UbtanActionTrigger.Water)
         {
+            for (int i = 0; i < waterArray.Length; i++)
+            {
+                waterArray[i].GetComponent<BoxCollider2D>().enabled = true;
+            }
             nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             action = UbtanActionTrigger.Cleaning;
             Indication.SetActive(true);

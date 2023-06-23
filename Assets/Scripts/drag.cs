@@ -24,6 +24,7 @@ public class drag : MonoBehaviour
     public UnityEvent MouseUp;
     Spa SpaController;
     Ubtan UbtanController;
+    private int index = 0;
     
     #region Start and Update
     void Start()
@@ -89,13 +90,11 @@ public class drag : MonoBehaviour
         MouseUp.Invoke();
         if (SpaController)
         {
-
-            SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
+            SpaController.eyesImage.sprite = SpaController.closeEyeSprites[5];
         }
         if (UbtanController)
         {
-
-            UbtanController.playerElements.eyes.sprite = UbtanController.eyeSprites[1];
+            UbtanController.playerElements.eyesImage.sprite = UbtanController.closeEyeSprites[5];
         }
         if (gameObject.name == "SerumDropper")
         {
@@ -114,15 +113,37 @@ public class drag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        //if (col.gameObject.tag == "DropTag" && gameObject.name == "WaterJar")
+        //{
+        //    col.GetComponent<Image>().color = new Color(1, 1, 1, col.GetComponent<Image>().color.a + 0.3f);
+        //    if (col.GetComponent<Image>().color.a >= 1)
+        //    {
+        //        col.enabled = false;
+        //        index++;
+        //        if (index == 10)
+        //        {
+        //            print("123456789");
+        //            dropOn = true;
+        //        }
+
+        //    }
+
+        //    //if (dropOn == true)
+        //    //{
+        //    //    Invoke("ubtanTaskDone", 1f);
+        //    //    UbtanController.cleaner.SetActive(false);
+        //    //}
+        //}
+
         if (UbtanController)
         {
-            UbtanController.playerElements.eyes.sprite = UbtanController.eyeSprites[0];
+            UbtanController.playerElements.eyesImage.sprite = UbtanController.closeEyeSprites[SaveData.Instance.selectedCharacter];
         }
         if (col.gameObject.name == "Pimple" && gameObject.name == "PimplePoper")
         {
             SpaController.ohNoSFX.Play();
             Invoke("ObjectOff", 0.1f);
-            SpaController.eyesImage.sprite = SpaController.eyeSprites[0];
+            SpaController.eyesImage.sprite = SpaController.closeEyeSprites[SaveData.Instance.selectedCharacter];
             SpaController.LipsImage.sprite = SpaController.lipsSprites[0];
             if (col.gameObject.transform.childCount > 0)
             col.gameObject.transform.GetChild(1).GetComponent<Animator>().enabled = true;
@@ -141,7 +162,7 @@ public class drag : MonoBehaviour
         }
         else if (col.gameObject.name == "Worm" && gameObject.name == "WormPoper")
         {
-            SpaController.eyesImage.sprite = SpaController.eyeSprites[0];
+            SpaController.eyesImage.sprite = SpaController.closeEyeSprites[SaveData.Instance.selectedCharacter];
             SpaController.ohNoSFX.Play();
             Invoke("ObjectOff", 0.1f);
             SpaController.LipsImage.sprite = SpaController.lipsSprites[0];
@@ -162,7 +183,7 @@ public class drag : MonoBehaviour
         }
         else if (col.gameObject.name == "Serum" && gameObject.name == "SerumDropper")
         {
-            SpaController.eyesImage.sprite = SpaController.eyeSprites[0];
+            SpaController.eyesImage.sprite = SpaController.closeEyeSprites[SaveData.Instance.selectedCharacter];
             Invoke("ObjectOff", 0.1f);
             if (col.gameObject.transform.childCount > 0)
             col.gameObject.transform.GetChild(1).GetComponent<Animator>().enabled = true;
@@ -200,7 +221,7 @@ public class drag : MonoBehaviour
         }
         else if ((col.gameObject.name == "Foam" || col.gameObject.name == "Dust") && gameObject.name == "Remover")
         {
-            SpaController.eyesImage.sprite = SpaController.eyeSprites[0];
+            SpaController.eyesImage.sprite = SpaController.closeEyeSprites[SaveData.Instance.selectedCharacter];
             SpaController.removerSFX.Play();
             if (col.gameObject.name == "Foam")
             {
@@ -236,27 +257,31 @@ public class drag : MonoBehaviour
                 Invoke("ubtanTaskDone", 1f);
             }
         }
-        else if ((col.gameObject.name == "YellowLayer" || col.gameObject.name == "WaterDrops") && gameObject.name == "WaterJar")
+        if ((col.gameObject.name == "YellowLayer" || col.gameObject.tag == "DropTag") && gameObject.name == "WaterJar")
         {
             UbtanController.Indication.SetActive(false);
             if (col.gameObject.name == "YellowLayer")
             {
                 col.transform.GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetComponent<Image>().color.a - 0.2f);
-                if(col.transform.GetComponent<Image>().color.a <= 0.5)
+                if (col.transform.GetComponent<Image>().color.a <= 0.5)
                 {
                     mehndiRemove = true;
-                }  
+                }
             }
-            if (col.gameObject.name == "WaterDrops")
+            if (col.gameObject.tag == "DropTag")
             {
-                for (int i = 0; i < 10; i++)
+                col.GetComponent<Image>().color = new Color(1, 1, 1, col.GetComponent<Image>().color.a + 0.3f);
+                if(col.GetComponent<Image>().color.a >= 1)
                 {
-                    col.transform.GetChild(i).GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetChild(i).GetComponent<Image>().color.a + 0.3f);
-                    if(col.transform.GetChild(i).GetComponent<Image>().color.a >= 1)
+                    col.enabled = false;
+                    index++;
+                    if(index == 10)
                     {
+                        index = 0;
                         dropOn = true;
                     }
-                }  
+                    
+                }
             }
 
             if (mehndiRemove == true && dropOn == true)
@@ -265,7 +290,7 @@ public class drag : MonoBehaviour
                 UbtanController.waterJar.SetActive(false);
             }
         }
-        else if ((col.gameObject.name == "YellowLayer" || col.gameObject.name == "WaterDrops") && gameObject.name == "Cleaner")
+        else if ((col.gameObject.name == "YellowLayer" || col.gameObject.tag == "DropTag") && gameObject.name == "Cleaner")
         {
             UbtanController.Indication.SetActive(false);
             UbtanController.removerSFX.Play();
@@ -277,15 +302,20 @@ public class drag : MonoBehaviour
                     mehndiRemove = true;
                 }
             }
-            if (col.gameObject.name == "WaterDrops")
+            if (col.gameObject.tag == "DropTag")
             {
-                for (int i = 0; i < 10; i++)
+                col.GetComponent<Image>().color = new Color(1, 1, 1, col.GetComponent<Image>().color.a - 0.3f);
+                if (col.GetComponent<Image>().color.a <= 0)
                 {
-                    col.transform.GetChild(i).GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetChild(i).GetComponent<Image>().color.a - 0.3f);
-                    if (col.transform.GetChild(i).GetComponent<Image>().color.a <= 0)
+                    col.enabled = false;
+                    index++;
+                    if (index == 10)
                     {
+                        index = 0;
                         dropOn = true;
+
                     }
+
                 }
             }
 
@@ -301,7 +331,7 @@ public class drag : MonoBehaviour
     {
         if(SpaController.facewashSFX) SpaController.facewashSFX.Stop();
         SpaController.LipsImage.sprite = SpaController.lipsSprites[1];
-        SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
+        SpaController.eyesImage.sprite = SpaController.closeEyeSprites[5];
         gameObject.SetActive(true);
     }
     public void ObjectOff()
@@ -311,8 +341,9 @@ public class drag : MonoBehaviour
     public void doneFunctionInvoke()
     {
         SpaController.TaskDone();
+        SpaController.LipsImage.sprite = SpaController.lipsSprites[1];
         if (SpaController.facewashSFX) SpaController.facewashSFX.Stop();
-        SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
+        SpaController.eyesImage.sprite = SpaController.closeEyeSprites[5];
         SpaController.taskParticle.Play();
         if (SpaController.taskParticle) SpaController.taskParticle.transform.GetComponent<AudioSource>().Play();
         totalTriggers = 0;
@@ -320,7 +351,7 @@ public class drag : MonoBehaviour
     public void ubtanTaskDone()
     {
         UbtanController.TaskDone();
-        UbtanController.playerElements.eyes.sprite = UbtanController.eyeSprites[1];
+        UbtanController.playerElements.eyesImage.sprite = UbtanController.closeEyeSprites[5];
         UbtanController.taskParticle.Play();
         if (UbtanController.taskParticle) UbtanController.taskParticle.transform.GetComponent<AudioSource>().Play();
     }

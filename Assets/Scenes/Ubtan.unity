@@ -766,9 +766,10 @@ GameObject:
   - component: {fileID: 51048748}
   - component: {fileID: 51048750}
   - component: {fileID: 51048749}
+  - component: {fileID: 51048751}
   m_Layer: 5
   m_Name: Drop (10)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -831,6 +832,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51048747}
   m_CullTransparentMesh: 1
+--- !u!61 &51048751
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51048747}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &76388642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1145,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124489370}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1442,9 +1469,10 @@ GameObject:
   - component: {fileID: 161827931}
   - component: {fileID: 161827933}
   - component: {fileID: 161827932}
+  - component: {fileID: 161827934}
   m_Layer: 5
   m_Name: Drop (1)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1482,7 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1507,6 +1535,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161827930}
   m_CullTransparentMesh: 1
+--- !u!61 &161827934
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161827930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &211777108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,7 +1627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5f5c28e08db5544eabf4afbe29d1b9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ce89d117924a0c499b2f97f35f35016, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7096,9 +7150,10 @@ GameObject:
   - component: {fileID: 437844533}
   - component: {fileID: 437844535}
   - component: {fileID: 437844534}
+  - component: {fileID: 437844536}
   m_Layer: 5
   m_Name: Drop (2)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7136,7 +7191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7161,6 +7216,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437844532}
   m_CullTransparentMesh: 1
+--- !u!61 &437844536
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437844532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 30}
+  m_EdgeRadius: 0
 --- !u!1 &490261734
 GameObject:
   m_ObjectHideFlags: 0
@@ -7718,9 +7799,10 @@ GameObject:
   - component: {fileID: 712456999}
   - component: {fileID: 712457001}
   - component: {fileID: 712457000}
+  - component: {fileID: 712457002}
   m_Layer: 5
   m_Name: Drop (5)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7758,7 +7840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7783,6 +7865,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712456998}
   m_CullTransparentMesh: 1
+--- !u!61 &712457002
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712456998}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &751576101
 GameObject:
   m_ObjectHideFlags: 0
@@ -7841,7 +7949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 032326af448b1e24db6417c09b5adeaf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 759a89af0e481a8409c276663fbba1b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8074,9 +8182,10 @@ GameObject:
   - component: {fileID: 852799309}
   - component: {fileID: 852799311}
   - component: {fileID: 852799310}
+  - component: {fileID: 852799312}
   m_Layer: 5
   m_Name: Drop (9)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8114,7 +8223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8139,6 +8248,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852799308}
   m_CullTransparentMesh: 1
+--- !u!61 &852799312
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852799308}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &897087836
 GameObject:
   m_ObjectHideFlags: 0
@@ -8370,9 +8505,10 @@ GameObject:
   - component: {fileID: 1028545805}
   - component: {fileID: 1028545807}
   - component: {fileID: 1028545806}
+  - component: {fileID: 1028545808}
   m_Layer: 5
   m_Name: Drop (6)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8410,7 +8546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8435,6 +8571,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028545804}
   m_CullTransparentMesh: 1
+--- !u!61 &1028545808
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028545804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &1031155654
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,9 +9619,10 @@ GameObject:
   - component: {fileID: 1441889212}
   - component: {fileID: 1441889214}
   - component: {fileID: 1441889213}
+  - component: {fileID: 1441889215}
   m_Layer: 5
   m_Name: Drop (3)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9497,7 +9660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9522,6 +9685,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441889211}
   m_CullTransparentMesh: 1
+--- !u!61 &1441889215
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441889211}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &1446184922
 GameObject:
   m_ObjectHideFlags: 0
@@ -11046,9 +11235,10 @@ GameObject:
   - component: {fileID: 1763273390}
   - component: {fileID: 1763273392}
   - component: {fileID: 1763273391}
+  - component: {fileID: 1763273393}
   m_Layer: 5
   m_Name: Drop (7)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11086,7 +11276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11111,6 +11301,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763273389}
   m_CullTransparentMesh: 1
+--- !u!61 &1763273393
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763273389}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &1776723809
 GameObject:
   m_ObjectHideFlags: 0
@@ -11753,7 +11969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 92a611fb2e9b81d4684cff56d84cf769, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 414dd32db06824f4892ec2308e604daa, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -12017,9 +12233,10 @@ GameObject:
   - component: {fileID: 2006920168}
   - component: {fileID: 2006920170}
   - component: {fileID: 2006920169}
+  - component: {fileID: 2006920171}
   m_Layer: 5
   m_Name: Drop (4)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12057,7 +12274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12082,6 +12299,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006920167}
   m_CullTransparentMesh: 1
+--- !u!61 &2006920171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006920167}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0
 --- !u!1 &2033413396
 GameObject:
   m_ObjectHideFlags: 0
@@ -12272,7 +12515,8 @@ MonoBehaviour:
     character: {fileID: 1920372442}
     jewelleryImage: {fileID: 2033413398}
     gajraImage: {fileID: 1923352862}
-    eyes: {fileID: 897087838}
+    eyesImage: {fileID: 897087838}
+    closeEyesImage: {fileID: 751576103}
   mehndiPot: {fileID: 1448281085}
   waterJar: {fileID: 322866319}
   cleaner: {fileID: 1395419230}
@@ -12315,9 +12559,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fba898a9643ca4a458cffb0dcab3dc4a, type: 3}
   - {fileID: 21300000, guid: 39088b182a9af774ba25aa28731effc9, type: 3}
   - {fileID: 21300000, guid: 0d8a4de1573a7e145b881ba426cb7fb5, type: 3}
-  eyeSprites:
-  - {fileID: 21300000, guid: 032326af448b1e24db6417c09b5adeaf, type: 3}
-  - {fileID: 21300000, guid: d02416a7e7fea79489afb393b1a1f669, type: 3}
+  closeEyeSprites:
+  - {fileID: 21300000, guid: 759a89af0e481a8409c276663fbba1b7, type: 3}
+  - {fileID: 21300000, guid: c2a699952ab701d45843eb6cb47bde5c, type: 3}
+  - {fileID: 21300000, guid: d49fbd26bd6f5be43a6f4f9be6e5a740, type: 3}
+  - {fileID: 21300000, guid: 20c2a75bb5a9bff4d8ae986a128802af, type: 3}
+  - {fileID: 21300000, guid: 013b2ed6276b6a648a4f9f6b11ba529d, type: 3}
+  - {fileID: 21300000, guid: 27de03c3f773e674fab935bda7f3ec14, type: 3}
   taskParticle: {fileID: 289970514}
   nextBtn: {fileID: 154113240}
   itemChangeSFX: {fileID: 786169917}
@@ -12327,14 +12575,14 @@ MonoBehaviour:
   characterBody: {fileID: 1920372444}
   characterFace: {fileID: 211777110}
   characterBodys:
-  - {fileID: 21300000, guid: 92a611fb2e9b81d4684cff56d84cf769, type: 3}
   - {fileID: 21300000, guid: 414dd32db06824f4892ec2308e604daa, type: 3}
+  - {fileID: 21300000, guid: 92a611fb2e9b81d4684cff56d84cf769, type: 3}
   - {fileID: 21300000, guid: 1f0a67e0c4bc77e43b81e7a3d446ee28, type: 3}
   - {fileID: 21300000, guid: 663e786867bb02d43bb18eee87d43348, type: 3}
   - {fileID: 21300000, guid: 37d8493af43a5dd4eaefaf5362349705, type: 3}
   characterFaces:
-  - {fileID: 21300000, guid: f5f5c28e08db5544eabf4afbe29d1b9c, type: 3}
   - {fileID: 21300000, guid: 8ce89d117924a0c499b2f97f35f35016, type: 3}
+  - {fileID: 21300000, guid: f5f5c28e08db5544eabf4afbe29d1b9c, type: 3}
   - {fileID: 21300000, guid: 507299506f46ec34f8d15d7bfb646450, type: 3}
   - {fileID: 21300000, guid: 3f5c7072f1977154fb465b7bf3516f7f, type: 3}
   - {fileID: 21300000, guid: c49bdc5f773929044b0f10f79dffab0b, type: 3}
@@ -12364,9 +12612,10 @@ GameObject:
   - component: {fileID: 2146715712}
   - component: {fileID: 2146715714}
   - component: {fileID: 2146715713}
+  - component: {fileID: 2146715715}
   m_Layer: 5
   m_Name: Drop (8)
-  m_TagString: Untagged
+  m_TagString: DropTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12404,7 +12653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12429,3 +12678,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146715711}
   m_CullTransparentMesh: 1
+--- !u!61 &2146715715
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146715711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 30, y: 40}
+  m_EdgeRadius: 0

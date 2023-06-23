@@ -15,12 +15,12 @@ public class HandAnimScript : MonoBehaviour
     }
     void OnMouseDown()
     {
-        SpaController.eyesImage.sprite = SpaController.eyeSprites[0];
+        SpaController.eyesImage.sprite = SpaController.closeEyeSprites[SaveData.Instance.selectedCharacter];
         MouseDown.Invoke();
     }
     void OnMouseUp()
     {
-        SpaController.eyesImage.sprite = SpaController.eyeSprites[1];
+        SpaController.eyesImage.sprite = SpaController.closeEyeSprites[5];
         MouseUp.Invoke();
         if (SpaController)
         {

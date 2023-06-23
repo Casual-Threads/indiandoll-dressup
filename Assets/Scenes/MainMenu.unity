@@ -1152,11 +1152,11 @@ RectTransform:
   - {fileID: 167236646}
   - {fileID: 1031009405}
   m_Father: {fileID: 1613695487}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1800, y: 545}
+  m_AnchoredPosition: {x: 0, y: 545}
   m_SizeDelta: {x: 636, y: 1195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575542882
@@ -2132,8 +2132,8 @@ MonoBehaviour:
   videoIcon: {fileID: 837715033}
   coinSlot: {fileID: 0}
   unlockCoins: {fileID: 0}
-  isLocked: 0
-  videoUnlock: 0
+  isLocked: 1
+  videoUnlock: 1
   coinsUnlock: 0
   requiredCoins: 0
 --- !u!114 &837715039
@@ -2690,8 +2690,8 @@ MonoBehaviour:
   videoIcon: {fileID: 1031009404}
   coinSlot: {fileID: 0}
   unlockCoins: {fileID: 0}
-  isLocked: 1
-  videoUnlock: 1
+  isLocked: 0
+  videoUnlock: 0
   coinsUnlock: 0
   requiredCoins: 0
 --- !u!114 &1031009407
@@ -4158,14 +4158,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo:
-  - {fileID: 837715038}
   - {fileID: 1031009406}
+  - {fileID: 837715038}
   - {fileID: 1566812540}
   - {fileID: 1206916930}
   - {fileID: 93440107}
   characters:
-  - {fileID: 1845308153}
   - {fileID: 575542882}
+  - {fileID: 1845308153}
   - {fileID: 376170395}
   - {fileID: 1867941533}
   - {fileID: 860439270}
@@ -4448,8 +4448,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1845308152}
   - {fileID: 575542881}
+  - {fileID: 1845308152}
   - {fileID: 376170394}
   - {fileID: 1867941532}
   - {fileID: 860439269}
@@ -4687,11 +4687,11 @@ RectTransform:
   - {fileID: 1101918832}
   - {fileID: 837715034}
   m_Father: {fileID: 1613695487}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 545}
+  m_AnchoredPosition: {x: 1800, y: 545}
   m_SizeDelta: {x: 636, y: 1195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845308153
