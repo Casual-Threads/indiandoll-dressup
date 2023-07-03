@@ -241,7 +241,7 @@ public class drag : MonoBehaviour
             }
             if(bubblesOff ==  true && dustRemove == true)
             {
-                SpaController.LipsImage.sprite = SpaController.lipsSprites[2];
+                //SpaController.LipsImage.sprite = SpaController.lipsSprites[2];
                 Invoke("doneFunctionInvoke", 1f);
             }
 
@@ -251,9 +251,9 @@ public class drag : MonoBehaviour
             UbtanController.removerSFX.Play();
             UbtanController.Indication.SetActive(false);
             col.transform.GetComponent<Image>().color = new Color(1, 1, 1, col.transform.GetComponent<Image>().color.a + 0.2f);
-            if(col.transform.GetComponent<Image>().color.a >= 1 && UbtanController.mehndiPot.activeSelf)
+            if(col.transform.GetComponent<Image>().color.a >= 1 && UbtanController.mehndiPot.gameObject.activeSelf)
             {
-                UbtanController.mehndiPot.SetActive(false);
+                UbtanController.mehndiPot.gameObject.SetActive(false);
                 Invoke("ubtanTaskDone", 1f);
             }
         }
@@ -287,7 +287,7 @@ public class drag : MonoBehaviour
             if (mehndiRemove == true && dropOn == true)
             {
                 Invoke("ubtanTaskDone", 1f);
-                UbtanController.waterJar.SetActive(false);
+                UbtanController.waterJar.gameObject.SetActive(false);
             }
         }
         else if ((col.gameObject.name == "YellowLayer" || col.gameObject.tag == "DropTag") && gameObject.name == "Cleaner")
@@ -322,7 +322,7 @@ public class drag : MonoBehaviour
             if (dropOn == true)
             {
                 Invoke("ubtanTaskDone", 1f);
-                UbtanController.cleaner.SetActive(false);
+                UbtanController.cleaner.gameObject.SetActive(false);
             }
         }
 
@@ -342,6 +342,10 @@ public class drag : MonoBehaviour
     {
         SpaController.TaskDone();
         SpaController.LipsImage.sprite = SpaController.lipsSprites[1];
+        if(gameObject.name == "Remover")
+        {
+            SpaController.LipsImage.sprite = SpaController.lipsSprites[2];
+        }
         if (SpaController.facewashSFX) SpaController.facewashSFX.Stop();
         SpaController.eyesImage.sprite = SpaController.closeEyeSprites[5];
         SpaController.taskParticle.Play();

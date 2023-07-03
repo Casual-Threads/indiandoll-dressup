@@ -15753,7 +15753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d57c556bec3d6045acba900be1fdd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 3
+  action: 1
   pimplePoper: {fileID: 1144307574}
   wormPoper: {fileID: 1059261443}
   serumBottel: {fileID: 762181517}

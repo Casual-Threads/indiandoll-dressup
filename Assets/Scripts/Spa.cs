@@ -190,6 +190,8 @@ public class Spa : MonoBehaviour
         }
         else if (action == SpaActionTrigger.Remover)
         {
+            //print("123");
+            //LipsImage.sprite = lipsSprites[0];
             if (clappingSFX) clappingSFX.Play();
             nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
             action = SpaActionTrigger.none;

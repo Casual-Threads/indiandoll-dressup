@@ -981,6 +981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87710268}
+  - component: {fileID: 87710269}
   m_Layer: 5
   m_Name: GajraContainer
   m_TagString: Untagged
@@ -1012,9 +1013,81 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 529, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &87710269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87710267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3c6189449d593499ebfe65edf75df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementProps:
+    isOnEnable: 0
+    moveNow: 0
+    easeType: 0
+    loopType: 0
+    moveFrom: 0
+    moveFromPosition: {x: 0, y: 0, z: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+    fromCurrentPosition: 0
+    targetPoint: {fileID: 0}
+    moveTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startMoveDelay: 0
+    fixMoveDelay: 0
+    fixMoveDelayValue: 0
+    randomMoveDelay: 0
+    minMoveDelayValue: 0
+    maxMoveDelayValue: 0
+    isInLoop: 0
+  rotationProps:
+    isOnEnable: 0
+    rotateNow: 0
+    easeType: 0
+    loopType: 0
+    rotationType: 0
+    rotationAngle: {x: 0, y: 0, z: 0}
+    rotationTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startRotationDelay: 0
+    fixRotationDelay: 0
+    fixRotationDelayValue: 0
+    randomRotationDelay: 0
+    minRotationDelayValue: 0
+    maxRotationDelayValue: 0
+    isStyleChanged: 0
+    isFixOrRandomRotation: 0
+    isLoop: 0
+  scaleProps:
+    isOnEnable: 0
+    scaleNow: 0
+    easeType: 0
+    loopType: 0
+    fromTo: 0
+    scaleFrom: {x: 0, y: 0, z: 0}
+    scaleTo: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startScaleDelay: 0
+    fixScaleDelay: 0
+    fixScaleDelayValue: 0
+    randomScaleDelay: 0
+    minScaleDelayValue: 0
+    maxScaleDelayValue: 0
+    isPingPong: 0
 --- !u!1 &92950645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,6 +6740,7 @@ GameObject:
   - component: {fileID: 322866323}
   - component: {fileID: 322866322}
   - component: {fileID: 322866327}
+  - component: {fileID: 322866328}
   m_Layer: 5
   m_Name: WaterJar
   m_TagString: Untagged
@@ -6691,7 +6765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.5}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -163, y: 418}
+  m_AnchoredPosition: {x: 261, y: 418}
   m_SizeDelta: {x: 413, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322866322
@@ -6828,6 +6902,78 @@ MonoBehaviour:
   MoveSpeed: 0.5
   canWait: 0
   waitTime: 0
+--- !u!114 &322866328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322866319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3c6189449d593499ebfe65edf75df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementProps:
+    isOnEnable: 0
+    moveNow: 0
+    easeType: 0
+    loopType: 0
+    moveFrom: 0
+    moveFromPosition: {x: 0, y: 0, z: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+    fromCurrentPosition: 0
+    targetPoint: {fileID: 0}
+    moveTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startMoveDelay: 0
+    fixMoveDelay: 0
+    fixMoveDelayValue: 0
+    randomMoveDelay: 0
+    minMoveDelayValue: 0
+    maxMoveDelayValue: 0
+    isInLoop: 0
+  rotationProps:
+    isOnEnable: 0
+    rotateNow: 0
+    easeType: 0
+    loopType: 0
+    rotationType: 0
+    rotationAngle: {x: 0, y: 0, z: 0}
+    rotationTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startRotationDelay: 0
+    fixRotationDelay: 0
+    fixRotationDelayValue: 0
+    randomRotationDelay: 0
+    minRotationDelayValue: 0
+    maxRotationDelayValue: 0
+    isStyleChanged: 0
+    isFixOrRandomRotation: 0
+    isLoop: 0
+  scaleProps:
+    isOnEnable: 0
+    scaleNow: 0
+    easeType: 0
+    loopType: 0
+    fromTo: 0
+    scaleFrom: {x: 0, y: 0, z: 0}
+    scaleTo: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startScaleDelay: 0
+    fixScaleDelay: 0
+    fixScaleDelayValue: 0
+    randomScaleDelay: 0
+    minScaleDelayValue: 0
+    maxScaleDelayValue: 0
+    isPingPong: 0
 --- !u!1 &357490123
 GameObject:
   m_ObjectHideFlags: 0
@@ -9243,6 +9389,7 @@ GameObject:
   - component: {fileID: 1395419233}
   - component: {fileID: 1395419232}
   - component: {fileID: 1395419237}
+  - component: {fileID: 1395419238}
   m_Layer: 5
   m_Name: Cleaner
   m_TagString: Untagged
@@ -9267,8 +9414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -147, y: 412}
-  m_SizeDelta: {x: 64.85, y: 61.04}
+  m_AnchoredPosition: {x: 277, y: 412}
+  m_SizeDelta: {x: 64.849976, y: 61.039978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395419232
 MonoBehaviour:
@@ -9392,6 +9539,78 @@ MonoBehaviour:
   MoveSpeed: 0.5
   canWait: 0
   waitTime: 0
+--- !u!114 &1395419238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395419230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3c6189449d593499ebfe65edf75df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementProps:
+    isOnEnable: 0
+    moveNow: 0
+    easeType: 0
+    loopType: 0
+    moveFrom: 0
+    moveFromPosition: {x: 0, y: 0, z: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+    fromCurrentPosition: 0
+    targetPoint: {fileID: 0}
+    moveTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startMoveDelay: 0
+    fixMoveDelay: 0
+    fixMoveDelayValue: 0
+    randomMoveDelay: 0
+    minMoveDelayValue: 0
+    maxMoveDelayValue: 0
+    isInLoop: 0
+  rotationProps:
+    isOnEnable: 0
+    rotateNow: 0
+    easeType: 0
+    loopType: 0
+    rotationType: 0
+    rotationAngle: {x: 0, y: 0, z: 0}
+    rotationTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startRotationDelay: 0
+    fixRotationDelay: 0
+    fixRotationDelayValue: 0
+    randomRotationDelay: 0
+    minRotationDelayValue: 0
+    maxRotationDelayValue: 0
+    isStyleChanged: 0
+    isFixOrRandomRotation: 0
+    isLoop: 0
+  scaleProps:
+    isOnEnable: 0
+    scaleNow: 0
+    easeType: 0
+    loopType: 0
+    fromTo: 0
+    scaleFrom: {x: 0, y: 0, z: 0}
+    scaleTo: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startScaleDelay: 0
+    fixScaleDelay: 0
+    fixScaleDelayValue: 0
+    randomScaleDelay: 0
+    minScaleDelayValue: 0
+    maxScaleDelayValue: 0
+    isPingPong: 0
 --- !u!1 &1420004751
 GameObject:
   m_ObjectHideFlags: 0
@@ -9798,6 +10017,7 @@ GameObject:
   - component: {fileID: 1448281086}
   - component: {fileID: 1448281088}
   - component: {fileID: 1448281087}
+  - component: {fileID: 1448281089}
   m_Layer: 5
   m_Name: MehndiPot
   m_TagString: Untagged
@@ -9823,7 +10043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -155, y: 406}
+  m_AnchoredPosition: {x: 274, y: 406}
   m_SizeDelta: {x: 413, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448281087
@@ -9864,6 +10084,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448281085}
   m_CullTransparentMesh: 1
+--- !u!114 &1448281089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448281085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3c6189449d593499ebfe65edf75df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementProps:
+    isOnEnable: 0
+    moveNow: 0
+    easeType: 0
+    loopType: 0
+    moveFrom: 0
+    moveFromPosition: {x: 0, y: 0, z: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+    fromCurrentPosition: 0
+    targetPoint: {fileID: 0}
+    moveTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startMoveDelay: 0
+    fixMoveDelay: 0
+    fixMoveDelayValue: 0
+    randomMoveDelay: 0
+    minMoveDelayValue: 0
+    maxMoveDelayValue: 0
+    isInLoop: 0
+  rotationProps:
+    isOnEnable: 0
+    rotateNow: 0
+    easeType: 0
+    loopType: 0
+    rotationType: 0
+    rotationAngle: {x: 0, y: 0, z: 0}
+    rotationTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startRotationDelay: 0
+    fixRotationDelay: 0
+    fixRotationDelayValue: 0
+    randomRotationDelay: 0
+    minRotationDelayValue: 0
+    maxRotationDelayValue: 0
+    isStyleChanged: 0
+    isFixOrRandomRotation: 0
+    isLoop: 0
+  scaleProps:
+    isOnEnable: 0
+    scaleNow: 0
+    easeType: 0
+    loopType: 0
+    fromTo: 0
+    scaleFrom: {x: 0, y: 0, z: 0}
+    scaleTo: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startScaleDelay: 0
+    fixScaleDelay: 0
+    fixScaleDelayValue: 0
+    randomScaleDelay: 0
+    minScaleDelayValue: 0
+    maxScaleDelayValue: 0
+    isPingPong: 0
 --- !u!1 &1474862962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10471,6 +10763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1585260918}
+  - component: {fileID: 1585260919}
   m_Layer: 5
   m_Name: JewelleryContainer
   m_TagString: Untagged
@@ -10502,9 +10795,81 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 529, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1585260919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585260917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3c6189449d593499ebfe65edf75df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementProps:
+    isOnEnable: 0
+    moveNow: 0
+    easeType: 0
+    loopType: 0
+    moveFrom: 0
+    moveFromPosition: {x: 0, y: 0, z: 0}
+    moveToPosition: {x: 0, y: 0, z: 0}
+    fromCurrentPosition: 0
+    targetPoint: {fileID: 0}
+    moveTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startMoveDelay: 0
+    fixMoveDelay: 0
+    fixMoveDelayValue: 0
+    randomMoveDelay: 0
+    minMoveDelayValue: 0
+    maxMoveDelayValue: 0
+    isInLoop: 0
+  rotationProps:
+    isOnEnable: 0
+    rotateNow: 0
+    easeType: 0
+    loopType: 0
+    rotationType: 0
+    rotationAngle: {x: 0, y: 0, z: 0}
+    rotationTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startRotationDelay: 0
+    fixRotationDelay: 0
+    fixRotationDelayValue: 0
+    randomRotationDelay: 0
+    minRotationDelayValue: 0
+    maxRotationDelayValue: 0
+    isStyleChanged: 0
+    isFixOrRandomRotation: 0
+    isLoop: 0
+  scaleProps:
+    isOnEnable: 0
+    scaleNow: 0
+    easeType: 0
+    loopType: 0
+    fromTo: 0
+    scaleFrom: {x: 0, y: 0, z: 0}
+    scaleTo: {x: 0, y: 0, z: 0}
+    scaleTime: 0
+    isLocal: 0
+    ignoreTimeScale: 0
+    startDelay: 0
+    startScaleDelay: 0
+    fixScaleDelay: 0
+    fixScaleDelayValue: 0
+    randomScaleDelay: 0
+    minScaleDelayValue: 0
+    maxScaleDelayValue: 0
+    isPingPong: 0
 --- !u!1 &1609813454
 GameObject:
   m_ObjectHideFlags: 0
@@ -12509,17 +12874,14 @@ MonoBehaviour:
   action: 0
   selectedItem: 0
   uIElements:
-    jewelleryObject: {fileID: 1585260917}
-    gajraObject: {fileID: 87710267}
+    jewelleryObject: {fileID: 1585260919}
+    gajraObject: {fileID: 87710269}
   playerElements:
     character: {fileID: 1920372442}
     jewelleryImage: {fileID: 2033413398}
     gajraImage: {fileID: 1923352862}
     eyesImage: {fileID: 897087838}
     closeEyesImage: {fileID: 751576103}
-  mehndiPot: {fileID: 1448281085}
-  waterJar: {fileID: 322866319}
-  cleaner: {fileID: 1395419230}
   yellowLayer: {fileID: 1494815087}
   waterDrops: {fileID: 124489370}
   Indication: {fileID: 1731890558}
@@ -12568,6 +12930,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 27de03c3f773e674fab935bda7f3ec14, type: 3}
   taskParticle: {fileID: 289970514}
   nextBtn: {fileID: 154113240}
+  mehndiPot: {fileID: 1448281089}
+  waterJar: {fileID: 322866328}
+  cleaner: {fileID: 1395419238}
   itemChangeSFX: {fileID: 786169917}
   removerSFX: {fileID: 1318310377}
   loadingPanel: {fileID: 1704095833}

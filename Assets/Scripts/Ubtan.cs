@@ -22,8 +22,8 @@ public enum UbtanSelectedItem
 [System.Serializable]
 public class UbtanElenemts
 {
-    public GameObject jewelleryObject;
-    public GameObject gajraObject;
+    public MRS_Manager jewelleryObject;
+    public MRS_Manager gajraObject;
     
 }
 
@@ -57,9 +57,9 @@ public class Ubtan : MonoBehaviour
     [HideLabel]
     [FoldoutGroup("Player Elements")]
     public UbtanPlayerElenemts playerElements;
-    [Header("Dragable Items")]
-    public GameObject mehndiPot;
-    public GameObject waterJar, cleaner;
+    //[Header("Dragable Items")]
+    //public GameObject mehndiPot;
+    //public GameObject waterJar, cleaner;
     [Header("Ubtan Items")]
     public GameObject yellowLayer;
     public GameObject waterDrops, Indication;
@@ -77,6 +77,7 @@ public class Ubtan : MonoBehaviour
 
     public ParticleSystem taskParticle;
     public MRS_Manager nextBtn;
+    public MRS_Manager mehndiPot, waterJar, cleaner;
     [Header("Ubtan AudioSource")]
     public AudioSource itemChangeSFX;
     public AudioSource removerSFX;
@@ -97,6 +98,7 @@ public class Ubtan : MonoBehaviour
         action = UbtanActionTrigger.Mehndi;
         SetInitialValues();
         GetItemsInfo();
+        mehndiPot.Move(new Vector3(385, -554, 0), 0.8f, true, false);
     }
     public void ShowInterstitial()
     {
@@ -254,20 +256,23 @@ public class Ubtan : MonoBehaviour
         if(action == UbtanActionTrigger.Water)
         {
             nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
-            waterJar.SetActive(true);
+            waterJar.gameObject.SetActive(true);
+            waterJar.Move(new Vector3(377, -542, 0), 0.8f, true, false);
         }
         else if(action == UbtanActionTrigger.Cleaning)
         {
-            cleaner.SetActive(true);
+            cleaner.gameObject.SetActive(true);
             nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
             action = UbtanActionTrigger.none;
+            cleaner.Move(new Vector3(377, -542, 0), 0.8f, true, false);
         }
         else if (selectedItem == UbtanSelectedItem.gajra)
         {
             nextBtn.Move(new Vector3(800, -138, 0), 0.5f, true, false);
             selectedItem = UbtanSelectedItem.jewellery;
-            uIElements.gajraObject.SetActive(false);
-            uIElements.jewelleryObject.SetActive(true);
+            uIElements.gajraObject.gameObject.SetActive(false);
+            uIElements.jewelleryObject.gameObject.SetActive(true);
+            uIElements.jewelleryObject.Move(new Vector3(0, 0, 0), 0.8f, true, false);
         }
         else if(selectedItem == UbtanSelectedItem.jewellery)
         {
@@ -297,9 +302,9 @@ public class Ubtan : MonoBehaviour
         }
         else if(action == UbtanActionTrigger.none)
         {
-            //nextBtn.Move(new Vector3(536, -138, 0), 0.5f, true, false);
             selectedItem = UbtanSelectedItem.gajra;
-            uIElements.gajraObject.SetActive(true);
+            uIElements.gajraObject.gameObject.SetActive(true);
+            uIElements.gajraObject.Move(new Vector3(0, 0, 0), 0.8f, true, false);
             nextBtn.gameObject.SetActive(true);
         }
     }

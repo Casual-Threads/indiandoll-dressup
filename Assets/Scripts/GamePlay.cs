@@ -22,7 +22,7 @@ public class GamePlayElements
                       blushScroller, closedEyeshadeScroller, eyeshadeScroller;
     [Header("UI")]
     public GameObject coinSlot;
-    public GameObject homeBtn, nextBtn, submitPanelbar, lastBtns;
+    public GameObject homeBtn, nextBtn, submitPanelbar, lastBtns, rateUsBtn;
     [Header("GamePlay Image")]
     public Image fillbar;
     public Image screenShotImage;
@@ -1483,6 +1483,7 @@ public class GamePlay : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (finalPartical) finalPartical.SetActive(true);
         yield return new WaitForSeconds(1f);
+        uIElements.rateUsBtn.SetActive(true);
         uIElements.lastBtns.SetActive(true);
 
     }
