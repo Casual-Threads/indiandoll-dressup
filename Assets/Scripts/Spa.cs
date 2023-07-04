@@ -102,6 +102,7 @@ public class Spa : MonoBehaviour
             }
             else if (action == SpaActionTrigger.Serum)
             {
+                ShowInterstitial();
                 nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
                 action = SpaActionTrigger.FaceWash;
                 serums.SetActive(false);
@@ -111,7 +112,7 @@ public class Spa : MonoBehaviour
             }
             else if (action == SpaActionTrigger.FaceWash)
             {
-                ShowInterstitial();
+                
                 nextBtn.Move(new Vector3(800, -244, 0), 0.5f, true, false);
                 action = SpaActionTrigger.Foam;
                 facewashBottel.SetActive(false);
@@ -135,6 +136,7 @@ public class Spa : MonoBehaviour
             {
                 remover.SetActive(false);
                 nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
+                ShowInterstitial();
                 play();
             }
     }
@@ -143,7 +145,6 @@ public class Spa : MonoBehaviour
     #region LoadScene
     public void play()
     {
-        ShowInterstitial();
         loadingPanel.SetActive(true);
         StartCoroutine(LoadingScene());
     }
@@ -190,8 +191,6 @@ public class Spa : MonoBehaviour
         }
         else if (action == SpaActionTrigger.Remover)
         {
-            //print("123");
-            //LipsImage.sprite = lipsSprites[0];
             if (clappingSFX) clappingSFX.Play();
             nextBtn.Move(new Vector3(530, -244, 0), 0.5f, true, false);
             action = SpaActionTrigger.none;

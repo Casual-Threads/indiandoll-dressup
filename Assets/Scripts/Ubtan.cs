@@ -102,10 +102,10 @@ public class Ubtan : MonoBehaviour
     }
     public void ShowInterstitial()
     {
-        //if (MyAdsManager.instance)
-        //{
-        //    MyAdsManager.instance.ShowInterstitialAds();
-        //}
+        if (MyAdsManager.instance)
+        {
+            MyAdsManager.instance.ShowInterstitialAds();
+        }
     }
     #endregion
 
@@ -276,6 +276,7 @@ public class Ubtan : MonoBehaviour
         }
         else if(selectedItem == UbtanSelectedItem.jewellery)
         {
+            ShowInterstitial();
             play();
         }
     }
@@ -313,7 +314,6 @@ public class Ubtan : MonoBehaviour
     #region LoadScene
     public void play()
     {
-        ShowInterstitial();
         loadingPanel.SetActive(true);
         StartCoroutine(LoadingScene());
     }

@@ -71,6 +71,7 @@ public class drag : MonoBehaviour
     }
     void OnMouseDown()
     {
+        gameObject.GetComponent<ScalePingPong>().enabled = false;
         MouseDown.Invoke();
         if (gameObject.name == "SerumDropper")
         {
@@ -87,6 +88,7 @@ public class drag : MonoBehaviour
     }
     void OnMouseUp()
     {
+        gameObject.GetComponent<ScalePingPong>().enabled = true;
         MouseUp.Invoke();
         if (SpaController)
         {

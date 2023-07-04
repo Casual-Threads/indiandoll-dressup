@@ -1146,7 +1146,6 @@ public class GamePlay : MonoBehaviour
         #endregion
         
         #region face
-        //randomIndex = Random.Range(0, characterFaces.Length);
         if (characterFaces[randomIndex] && oppoElements.leftCharacterFace)
         {
             oppoElements.leftCharacterFace.gameObject.SetActive(true);
@@ -1297,7 +1296,6 @@ public class GamePlay : MonoBehaviour
         #endregion
 
         #region face
-        //randomIndex = Random.Range(0, characterFaces.Length);
         if (characterFaces[randomIndex] && oppoElements.rightCharacterFace)
         {
             oppoElements.rightCharacterFace.gameObject.SetActive(true);
@@ -1515,16 +1513,15 @@ public class GamePlay : MonoBehaviour
         {
             uIElements.screenShotImage.sprite = sprite;
             uIElements.screenShotPanel.SetActive(true);
-            //DownloadImage();
         }
         _Taxture = _Texture;
-        Invoke("DownloadImage", 0.8f);
+        Invoke("DownloadImage", 0.4f);
     }
     public void DownloadImage()
     {
         string picturName = "ScreenShot_" + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".png";
         NativeGallery.SaveImageToGallery(_Taxture, "My Pictures", picturName);
-        Invoke("PictureSaved", 0.8f);
+        Invoke("PictureSaved", 0.4f);
 
     }
     private void PictureSaved()
@@ -1532,7 +1529,7 @@ public class GamePlay : MonoBehaviour
         uIElements.screenShotPanel.SetActive(false);
         uIElements.submitPanel.SetActive(true);
         Destroy(_Taxture);
-        Invoke("Submitted", 0.7f);
+        Invoke("Submitted", 0.4f);
     }
     #endregion
 }
