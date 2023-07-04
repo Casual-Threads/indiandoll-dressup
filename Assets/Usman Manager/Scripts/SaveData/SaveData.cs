@@ -63,7 +63,7 @@ public class SaveData
         }
     }
     public bool RemoveAds = false;
-    //public int vsMode;
+    public bool isRate = false;
     public int LevelsUnlocked = 1;
     public int levelIndex = 0;
     public int EventsUnlocked = 0;

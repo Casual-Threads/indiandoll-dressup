@@ -1146,7 +1146,7 @@ public class GamePlay : MonoBehaviour
         #endregion
         
         #region face
-        randomIndex = Random.Range(0, characterFaces.Length);
+        //randomIndex = Random.Range(0, characterFaces.Length);
         if (characterFaces[randomIndex] && oppoElements.leftCharacterFace)
         {
             oppoElements.leftCharacterFace.gameObject.SetActive(true);
@@ -1297,7 +1297,7 @@ public class GamePlay : MonoBehaviour
         #endregion
 
         #region face
-        randomIndex = Random.Range(0, characterFaces.Length);
+        //randomIndex = Random.Range(0, characterFaces.Length);
         if (characterFaces[randomIndex] && oppoElements.rightCharacterFace)
         {
             oppoElements.rightCharacterFace.gameObject.SetActive(true);
@@ -1483,7 +1483,14 @@ public class GamePlay : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (finalPartical) finalPartical.SetActive(true);
         yield return new WaitForSeconds(1f);
-        uIElements.rateUsBtn.SetActive(true);
+        if(SaveData.Instance.isRate == false)
+        {
+            uIElements.rateUsBtn.SetActive(true);
+        }
+        else
+        {
+            uIElements.rateUsBtn.SetActive(false);
+        }
         uIElements.lastBtns.SetActive(true);
 
     }
