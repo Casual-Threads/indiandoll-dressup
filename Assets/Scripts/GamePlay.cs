@@ -22,7 +22,7 @@ public class GamePlayElements
                       blushScroller, closedEyeshadeScroller, eyeshadeScroller;
     [Header("UI")]
     public GameObject coinSlot;
-    public GameObject homeBtn, nextBtn, submitPanelbar, lastBtns, rateUsBtn;
+    public GameObject homeBtn, nextBtn, submitPanelbar, lastBtns, rateUsPanel;
     [Header("GamePlay Image")]
     public Image fillbar;
     public Image screenShotImage;
@@ -1483,11 +1483,11 @@ public class GamePlay : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if(SaveData.Instance.isRate == false)
         {
-            uIElements.rateUsBtn.SetActive(true);
+            uIElements.rateUsPanel.SetActive(true);
         }
         else
         {
-            uIElements.rateUsBtn.SetActive(false);
+            uIElements.rateUsPanel.SetActive(false);
         }
         uIElements.lastBtns.SetActive(true);
 
