@@ -203,7 +203,6 @@ public class CharacterSelection : MonoBehaviour
     }
     #endregion
 
-
     #region CheckVideoStatus
     public void CheckVideoStatus()
     {
